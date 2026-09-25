@@ -57,28 +57,25 @@ python3 -m http.server 5180 --bind 127.0.0.1
 
 ## 2. VPS 部署（Docker + Caddy，自动 HTTPS）
 
-适用于 Linux VPS。先安装 Docker Engine、Docker Compose 插件、Git 和 GitHub CLI（`gh`），并确认：
+适用于 Linux VPS，已安装 Docker Engine、Docker Compose 插件和 Git；可用以下命令确认：
 
 ```sh
 docker --version
 docker compose version
 git --version
-gh --version
 ```
 
-### 首次部署（私有 GitHub 仓库）
+### 首次部署（公开 GitHub 仓库）
 
-仓库地址：`https://github.com/chilin11/little-play-arcade`。在 VPS 上登录拥有该私有仓库访问权限的 GitHub 账号，按 CLI 提示完成一次授权，然后克隆：
+在 VPS 上直接克隆，无需 GitHub 登录或 token：
 
 ```sh
-gh auth login
-gh auth setup-git
-gh repo clone chilin11/little-play-arcade ~/little-play
+git clone https://github.com/chilin11/little-play-arcade.git ~/little-play
 cd ~/little-play
 cp .env.example .env
 ```
 
-不要把 GitHub 密码或访问令牌写进命令、URL 或项目文件。`~/little-play/.env` 只保留在 VPS（已被 Git 忽略）。当前用户需有 Docker 权限，否则在 VPS 上的 Docker 命令前使用 `sudo`。
+`~/little-play/.env` 只保留在 VPS（已被 Git 忽略）。当前用户需有 Docker 权限，否则在 VPS 上的 Docker 命令前使用 `sudo`。
 
 ### 配置域名
 
@@ -143,47 +140,34 @@ docker compose up -d --build
 
 网站是纯静态文件，只需 Python 3 标准库（Ubuntu / Debian 通常已有）和 systemd：无 Docker、Nginx、Node.js、数据库；默认直接监听 **5180** 端口。此方案仅提供 **HTTP**；公网开放端口时流量不加密，不要在站内输入敏感信息。需要 HTTPS 时可在现有反向代理后面使用，届时将 service 中的 `--bind 0.0.0.0` 改为 `--bind 127.0.0.1`。
 
-### 首次部署
+### 首次部署（在 VPS 上运行）
 
-在**本机项目根目录**运行（替换 SSH 地址；只上传网站文件和服务文件）：
-
-```sh
-ssh YOUR_USER@YOUR_VPS_IP 'mkdir -p ~/little-play/public'
-scp -r public/. YOUR_USER@YOUR_VPS_IP:~/little-play/public/
-scp deploy/serve.py deploy/little-play.service YOUR_USER@YOUR_VPS_IP:~/little-play/
-```
-
-在 **VPS** 上运行：
+适用于 Ubuntu / Debian。在 VPS 上登录 SSH，确保已安装 Python 3 和 Git；缺少时执行 `sudo apt update && sudo apt install python3 git`。然后：
 
 ```sh
-ssh YOUR_USER@YOUR_VPS_IP
-python3 --version
-sudo mkdir -p /opt/little-play
-sudo cp -R ~/little-play/public /opt/little-play/
-sudo install -m 644 ~/little-play/serve.py /opt/little-play/serve.py
-sudo install -m 644 ~/little-play/little-play.service /etc/systemd/system/little-play.service
+sudo git clone https://github.com/chilin11/little-play-arcade.git /opt/little-play
+sudo install -m 644 /opt/little-play/deploy/little-play.service /etc/systemd/system/little-play.service
 sudo systemctl daemon-reload
 sudo systemctl enable --now little-play
 sudo systemctl status little-play --no-pager
 curl -I http://127.0.0.1:5180/
 ```
 
-在云厂商安全组及系统防火墙**只新增放行 TCP 5180**（不要关闭 SSH 或清空现有规则），然后访问 `http://VPS_IP:5180/`。若 5180 已被占用，把 `deploy/little-play.service` 的 `--port 5180` 改成空闲端口，重新上传安装并 `sudo systemctl daemon-reload && sudo systemctl restart little-play`，同时放行对应端口。服务会随系统启动；查看日志：`sudo journalctl -u little-play -n 50 --no-pager`。
+`curl` 应返回 `200 OK`。在云厂商安全组及系统防火墙**新增放行 TCP 5180**（不要关闭 SSH 或清空现有规则），然后访问 `http://VPS_IP:5180/`。若端口已被占用，修改 `/etc/systemd/system/little-play.service` 中的 `--port 5180` 为其他空闲端口，再执行 `sudo systemctl daemon-reload && sudo systemctl restart little-play` 并放行新端口。日志：`sudo journalctl -u little-play -n 50 --no-pager`。
 
-### 后续更新
-
-本机重新上传文件：
+### 后续更新（在 VPS 上运行）
 
 ```sh
-scp -r public/. YOUR_USER@YOUR_VPS_IP:~/little-play/public/
-ssh YOUR_USER@YOUR_VPS_IP 'sudo cp -R ~/little-play/public/. /opt/little-play/public/'
+cd /opt/little-play
+sudo git pull --ff-only
+sudo systemctl restart little-play
 ```
 
-仅更新网页文件**不需要重启服务**。如果删除了旧资源，`scp` 不会自动清理 VPS 上的旧文件；需手动删除对应旧文件。更新服务脚本时再上传 `deploy/serve.py` 到 VPS 并安装到 `/opt/little-play/serve.py`，然后 `sudo systemctl restart little-play`。文件位于专用目录，服务只公开其中的 `public/`；`/not-found` 应返回 404，不提供目录列表。
+只更新网页文件通常无需重启，但重启可让服务脚本的改动一起生效。若更新了 service 文件，再安装并执行 `sudo systemctl daemon-reload && sudo systemctl restart little-play`。服务仅公开仓库的 `public/`，不提供目录列表；不要把 token 或 `.env` 放入 `public/`。
 
 ## 4. 可选：小 VPS 使用 Nginx（静态托管）
 
-适用于 Ubuntu / Debian。VPS 只运行 Nginx，不构建镜像、不安装 Node.js；用本机的 `rsync` 通过 SSH 上传 `public/`，无需在 VPS 上登录私有 GitHub 仓库。此方案与上面的单端口服务或 Docker + Caddy **任选一种**；单端口服务可与 Nginx 共存，但不要让两者占用同一端口。
+适用于 Ubuntu / Debian。VPS 只运行 Nginx，不构建镜像、不安装 Node.js；也可用本机的 `rsync` 通过 SSH 只上传 `public/`。此方案与上面的单端口服务或 Docker + Caddy **任选一种**；单端口服务可与 Nginx 共存，但不要让两者占用同一端口。
 
 ### 首次准备（在 VPS 上执行一次）
 
