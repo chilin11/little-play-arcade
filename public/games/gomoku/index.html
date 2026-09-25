@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f4f2ec">
+  <title>五子 · 方寸之间，自有天地</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="game.js" defer></script>
+</head>
+<body>
+  <header class="header"><a class="brand" href="./"><span class="brand-icon">五</span>五子<span class="brand-en">GOMOKU</span></a><span class="header-note">一局棋，一刻从容 <span class="tiny-dot"></span></span></header>
+  <main>
+    <section class="intro"><div><div class="eyebrow">THE ART OF FIVE IN A ROW</div><h1>方寸之间，<span>自有天地。</span></h1><p>黑白交替，落子有声。放慢脚步，来一场专注的对弈。</p></div><span class="intro-mark" aria-hidden="true">● ○<br>○ ●</span></section>
+    <div class="game-layout">
+      <section class="board-panel" aria-label="五子棋棋盘">
+        <div class="board-top"><span><i class="live-dot"></i> <span id="game-label">对局进行中</span></span><span>十五路棋盘 <span class="separator">/</span> 自由五子棋</span></div>
+        <div class="board-wrap"><div class="board" id="board" role="group" aria-label="15乘15棋盘"></div></div>
+        <div class="board-bottom"><span><span class="last-symbol">◇</span> 标记为最近落子</span><span id="move-count">第 01 手</span></div>
+      </section>
+      <aside class="sidebar">
+        <section class="control-card">
+          <div class="section-heading"><h2>开始一局</h2><span>YOUR NEXT MOVE</span></div>
+          <div class="mode-switch" aria-label="对弈模式"><button id="ai-mode" class="active" aria-pressed="true">人机对战</button><button id="local-mode" aria-pressed="false">双人对弈</button></div>
+          <div class="players"><div class="player active" id="black-player"><span class="stone-avatar black"></span><strong id="black-name">你</strong><small>执黑 · 先手</small><span class="turn-label">落子中</span></div><span class="versus">VS</span><div class="player" id="white-player"><span class="stone-avatar white"></span><strong id="white-name">电脑</strong><small>执白 · 后手</small><span class="turn-label">等待中</span></div></div>
+          <div class="status" role="status" aria-live="polite"><span id="status-icon">✦</span><div><strong id="status-title">轮到你落子</strong><p id="status-detail">执黑先行，选一个好位置。</p></div></div>
+          <button class="primary-button" id="restart"><span>↻</span> 重新开始</button>
+          <button class="secondary-button" id="undo"><span>↶</span> 悔一步 <span class="button-note">UNDO</span></button>
+        </section>
+        <section class="rules-card"><div class="rules-title"><span>◎</span><h2>落子之前</h2></div><p>双方轮流落子，率先将 <strong>五颗同色棋子</strong> 连成一线，即可获胜。</p><div class="five-stones" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><span>五子连珠，即为胜局</span></div><div class="rule-foot">横、竖、斜线皆可 · 不设禁手</div></section>
+        <p class="side-quote">「 善弈者谋势，不善弈者谋子。 」</p>
+      </aside>
+    </div>
+    <footer><span>落子无悔，也可以再来一次。</span><span>MADE FOR A QUIET MOMENT <span>✳</span></span></footer>
+  </main>
+  <dialog id="confirm-dialog"><h2>开启新的一局？</h2><p>当前对局将被清空，不妨换个思路再出发。</p><div class="dialog-actions"><button id="cancel-reset" class="secondary-button">继续对局</button><button id="confirm-reset" class="primary-button">开始新局</button></div></dialog>
+</body>
+</html>

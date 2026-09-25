@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f7f2e8">
+  <title>魔法衣橱 · 把灵感穿在身上</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="game.js"></script>
+</head>
+<body>
+  <header class="header">
+    <a class="brand" href="./" aria-label="魔法衣橱首页"><span class="brand-mark" aria-hidden="true">✦</span><span>魔法衣橱<small>MAGIC WARDROBE</small></span></a>
+    <a class="hall-link" href="../../index.html" target="_top">← 游戏大厅</a>
+  </header>
+
+  <main>
+    <section class="intro">
+      <div>
+        <p class="eyebrow">A LITTLE MAGIC, A LOT OF STYLE</p>
+        <h1>把灵感穿上，<span>今天想怎么闪耀？</span></h1>
+        <p>为小动物完成一张愿望订单，也可以打开衣橱，自由搭出一套只属于你的作品。</p>
+      </div>
+      <div class="intro-art" aria-hidden="true"><span>✧</span><b>衣橱<br>开门啦</b><i>◌</i></div>
+    </section>
+
+    <div class="mode-switch" role="group" aria-label="游戏模式">
+      <button id="mode-wish" class="mode-button selected" type="button" aria-pressed="true">愿望订单</button>
+      <button id="mode-free" class="mode-button" type="button" aria-pressed="false">自由设计</button>
+    </div>
+
+    <div class="wardrobe-layout">
+      <section class="stage-panel" aria-label="角色换装展示区">
+        <div class="stage-top"><span><i></i> <span id="stage-label">愿望订单 · 小兔米娅</span></span><span id="design-status" aria-label="已获得 0 张贴纸">贴纸 <strong id="sticker-count">0</strong></span></div>
+        <div id="wardrobe-stage" class="wardrobe-stage" aria-live="polite">
+          <p class="stage-loading">正在打开真实衣橱…</p>
+        </div>
+        <div class="stage-bottom"><span id="message" role="status" aria-live="polite">先挑一件喜欢的衣服吧</span><span id="look-mode-label">订单模式 · 慢慢搭</span></div>
+      </section>
+
+      <aside class="sidebar">
+        <section id="order-card" class="order-card" aria-labelledby="order-title">
+          <div class="section-heading"><div><p class="eyebrow">A TINY WISH LIST</p><h2 id="order-title">愿望订单 <span id="order-number">01</span><small id="order-total">/ 12</small></h2></div><span class="order-stamp" aria-hidden="true">✧</span></div>
+          <p id="order-copy" class="order-copy">小动物想穿一套新衣服。请从衣橱里找齐她的愿望：</p>
+          <div id="order-preview" class="order-preview" aria-label="愿望订单穿搭预览"></div>
+          <ul id="order-requirements" class="requirements" aria-label="订单要求"></ul>
+          <p id="feedback" class="feedback" role="status" aria-live="polite">把订单上标出的角色和单品找齐，再来检查吧。</p>
+          <button id="check-order" class="primary-button" type="button">检查愿望订单</button>
+          <button id="next-order" class="secondary-button" type="button" hidden>下一张愿望订单 →</button>
+        </section>
+
+        <section class="choice-card" aria-labelledby="choice-title">
+          <div class="section-heading"><div><p class="eyebrow">PICK YOUR PIECES</p><h2 id="choice-title">打开衣橱</h2></div><span id="choice-hint">一次打开一个分类</span></div>
+          <div class="character-section">
+            <div class="group-label"><span>角色 <small>CHARACTER</small></span><strong id="selected-character-name">小兔米娅</strong></div>
+            <div id="character-picker" class="character-picker" role="group" aria-label="角色选择" hidden></div>
+          </div>
+          <div id="category-tabs" class="category-tabs" role="tablist" aria-label="衣橱分类"></div>
+          <div class="category-heading"><div><h3 id="category-title">上衣</h3><span id="category-count">8 件</span></div><span id="category-help">真实 SVG 预览</span></div>
+          <div id="wardrobe-options" class="wardrobe-options" role="group" aria-label="上衣选项"></div>
+        </section>
+
+        <section class="tools-card" aria-labelledby="tools-title">
+          <div class="section-heading"><h2 id="tools-title">灵感工具箱</h2><span>MAKE IT YOURS</span></div>
+          <p id="free-note">切换到自由设计，试试完整的真实衣橱搭配。</p>
+          <div class="tool-buttons">
+            <button id="random-inspiration" class="secondary-button" type="button">随机整套</button>
+            <button id="reset-look" class="secondary-button" type="button">重置穿搭</button>
+            <button id="save-design" class="primary-button" type="button">收藏这套作品</button>
+          </div>
+          <div class="collection-stat"><span aria-hidden="true">▣</span><div><strong id="saved-count">0</strong><small>套已收藏的作品</small></div><span class="collection-rule" aria-hidden="true">···</span></div>
+          <p id="save-note" class="save-note">贴纸、订单和作品会留在当前浏览器。</p>
+        </section>
+      </aside>
+    </div>
+
+    <section class="collection-panel" aria-labelledby="collection-title">
+      <div class="collection-heading"><div><p class="eyebrow">A LITTLE GALLERY</p><h2 id="collection-title">我的作品册</h2></div><span>完整穿搭会被真实还原在这里</span></div>
+      <div id="saved-works" class="saved-works"><p class="empty-collection">还没有收藏作品，搭好一套就把它留下来吧。</p></div>
+    </section>
+    <footer><span>每一种颜色，都有自己的好天气。</span><span>MADE FOR LITTLE STYLISTS ✦</span></footer>
+  </main>
+</body>
+</html>

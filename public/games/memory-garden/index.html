@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f7f2e8">
+  <title>花园翻翻乐 · 找到成双的小花</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="game.js"></script>
+</head>
+<body>
+  <header class="header">
+    <a class="brand" href="./"><span class="brand-mark" aria-hidden="true">✿</span><span>花园翻翻乐<small>MEMORY GARDEN</small></span></a>
+    <a class="hall-link" href="../../index.html" target="_top">← 游戏大厅</a>
+  </header>
+  <main>
+    <section class="intro">
+      <div><p class="eyebrow">TURN A CARD, FIND A FRIEND</p><h1>翻开小花，<span>找到好朋友。</span></h1><p>记住每张卡片的位置，把一样的花园朋友轻轻配成一对。</p></div>
+      <div class="intro-art" aria-hidden="true">🌼 <i>♡</i> 🐝</div>
+    </section>
+    <div class="game-layout">
+      <section class="board-panel" aria-label="花园记忆配对游戏">
+        <div class="board-top"><span><i></i> <span id="round-label">蒲公英小径</span></span><span id="progress-text">已找到 0 / 6 对</span></div>
+        <div id="board" class="board" role="grid" aria-label="记忆卡牌棋盘"></div>
+        <div class="board-bottom"><span id="message" role="status" aria-live="polite">选两张卡片看看吧</span><span>慢慢记 · 不着急</span></div>
+      </section>
+      <aside>
+        <section class="control-card">
+          <div class="section-heading"><h2>园丁小屋</h2><span>HAPPY PAIRS</span></div>
+          <label class="difficulty-label" for="difficulty">花园大小</label>
+          <select id="difficulty">
+            <option value="sprout">嫩芽 · 6 对</option>
+            <option value="bloom">花开 · 8 对</option>
+            <option value="meadow">草甸 · 10 对</option>
+          </select>
+          <div class="stats"><div><strong id="matched-count">0 / 6</strong><span>配对</span></div><div><strong id="moves">0</strong><span>翻牌步数</span></div><div><strong id="streak">0</strong><span>连胜</span></div></div>
+          <div class="best-card"><span aria-hidden="true">🏵️</span><div><small>这片花园的最好步数</small><strong id="best">还在等你</strong></div></div>
+          <button id="restart" class="primary-button">↻ 重新开始</button>
+          <p id="save-note" class="save-note">最好步数会留在当前浏览器。</p>
+        </section>
+        <section class="rules-card"><h2>怎么玩</h2><p><b>①</b> 点按卡片，或用方向键移动、回车翻开。</p><p><b>②</b> 找到两个相同的图案，它们就会一起留在花园里。</p><p><b>③</b> 完成一局后可以继续下一片更大的花园。</p></section>
+      </aside>
+    </div>
+    <footer><span>每一次记住，都是小小的发现。</span><span>MADE FOR LITTLE GARDENERS ✿</span></footer>
+  </main>
+  <dialog id="win-dialog" aria-labelledby="win-title"><div class="win-art" aria-hidden="true">🌷</div><h2 id="win-title">花园里的朋友都团聚啦！</h2><p id="win-copy">你找到了所有好朋友。</p><div class="dialog-actions"><button id="replay" class="secondary-button">再玩一次</button><button id="next" class="primary-button">去下一片花园 →</button></div></dialog>
+</body>
+</html>

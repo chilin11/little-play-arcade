@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+  <title>野餐分分乐 · 点数与分配素材</title>
+  <symbol id="apple" viewBox="0 0 100 100">
+    <path d="M50 28Q50 14 58 9" fill="none" stroke="#655c42" stroke-width="5" stroke-linecap="round"/><path d="M51 25Q30 26 28 11Q47 8 51 25Z" fill="#a9c598" stroke="#46644d" stroke-width="3"/>
+    <path d="M50 32C12 13 4 54 22 80Q35 99 50 88Q67 99 80 80C97 53 87 12 50 32Z" fill="#e5a18d" stroke="#865e51" stroke-width="4"/><path d="M27 45Q21 52 24 62" fill="none" stroke="#fff4df" stroke-width="5" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="pear" viewBox="0 0 100 100">
+    <path d="M51 22L56 9" stroke="#655c42" stroke-width="5" stroke-linecap="round"/><path d="M51 24Q69 23 70 10Q53 6 51 24Z" fill="#a9c598" stroke="#46644d" stroke-width="3"/>
+    <path d="M34 37C32 18 65 18 67 37C65 56 87 58 85 77C84 100 13 100 15 76C15 56 35 53 34 37Z" fill="#e8ce83" stroke="#827046" stroke-width="4"/><path d="M33 62L28 72" stroke="#fff4df" stroke-width="5" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="rabbit" viewBox="0 0 100 100">
+    <path d="M25 49C7-7 41-10 42 43M58 43C59-10 93-7 75 49" fill="#fff8e6" stroke="#856d66" stroke-width="4"/><path d="M29 18L33 37M70 18L66 37" stroke="#e5b0ac" stroke-width="7" stroke-linecap="round"/>
+    <ellipse cx="50" cy="64" rx="37" ry="30" fill="#fff8e6" stroke="#856d66" stroke-width="4"/><g fill="#66564e"><circle cx="37" cy="60" r="3"/><circle cx="63" cy="60" r="3"/></g><g fill="#eab7ad"><ellipse cx="27" cy="71" rx="7" ry="4"/><ellipse cx="73" cy="71" rx="7" ry="4"/></g><path d="M44 71Q50 80 56 71" fill="none" stroke="#856d66" stroke-width="3" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="bear" viewBox="0 0 100 100">
+    <g fill="#d7ba8b" stroke="#7f6c4f" stroke-width="4"><circle cx="22" cy="28" r="16"/><circle cx="78" cy="28" r="16"/><rect x="13" y="23" width="74" height="68" rx="33"/></g><g fill="#66564e"><circle cx="36" cy="52" r="3"/><circle cx="64" cy="52" r="3"/></g><ellipse cx="50" cy="70" rx="20" ry="14" fill="#fff0d2"/><path d="M45 65H55L50 71Z" fill="#7f6c4f"/><path d="M44 74Q50 81 56 74" fill="none" stroke="#7f6c4f" stroke-width="3" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="plate" viewBox="0 0 160 120">
+    <ellipse cx="80" cy="67" rx="74" ry="45" fill="#d5dfc8"/><ellipse cx="80" cy="58" rx="74" ry="45" fill="#fffaf0" stroke="#8a9c79" stroke-width="3"/><ellipse cx="80" cy="58" rx="58" ry="32" fill="#f2f1e1" stroke="#d9dfcc" stroke-width="2"/>
+  </symbol>
+  <symbol id="basket" viewBox="0 0 160 130">
+    <path d="M37 50C37-5 123-5 123 50" fill="none" stroke="#947348" stroke-width="9"/><path d="M18 48H142L128 119H32Z" fill="#e8c28a" stroke="#947348" stroke-width="4" stroke-linejoin="round"/>
+    <path d="M23 68H137M27 88H133M31 108H129M52 50L58 118M80 50V118M108 50L102 118" stroke="#bf935d" stroke-width="3"/><rect x="13" y="42" width="134" height="16" rx="7" fill="#f3d5a1" stroke="#947348" stroke-width="4"/>
+    <path d="M56 44L67 64L80 52L93 64L104 44" fill="#eab4a9" stroke="#947348" stroke-width="3" stroke-linejoin="round"/>
+  </symbol>
+</svg>

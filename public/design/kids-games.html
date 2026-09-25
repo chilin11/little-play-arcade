@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>玩一会儿 · 新游戏设计样张</title><link rel="stylesheet" href="kids-games.css"></head>
+<body>
+<header class="design-header"><strong>玩一会儿 · 设计样张</strong><a href="../index.html">返回游戏大厅 ↗</a></header>
+<main>
+<p class="design-label">LITTLE IDEAS, LOVELY PLAY</p><h1>慢慢发现，小小的规律。</h1>
+<p>这是静态设计交接页，不是可玩的游戏。图形、选中、提示和完成状态供实现参考；所有游戏操作将在后续接入。</p>
+<nav class="design-nav" aria-label="设计章节"><a href="#train">花花小火车</a><a href="#picnic">野餐分分乐</a><a href="#assets">素材与状态</a></nav>
+<section id="train" class="game-study" aria-labelledby="train-title">
+<h2 id="train-title">花花小火车</h2><p>看看前面的图案，下一节车厢该装什么？</p>
+<div class="study-layout"><div class="study-board">
+<div class="study-status"><span>第 1 / 9 站</span><span>不计时，慢慢找</span></div>
+<div class="train-line" role="img" aria-label="从左往右：叶子、花朵、叶子、花朵、叶子，空车厢">
+<div class="wagon"><svg aria-hidden="true"><use href="../games/pattern-train/assets/pattern-sprite.svg#wagon"/></svg><svg class="cargo" aria-hidden="true"><use href="../games/pattern-train/assets/pattern-sprite.svg#leaf"/></svg></div>
+<div class="wagon"><svg aria-hidden="true"><use href="../games/pattern-train/assets/pattern-sprite.svg#wagon"/></svg><svg class="cargo" aria-hidden="true"><use href="../games/pattern-train/assets/pattern-sprite.svg#flower"/></svg></div>
+<div class="wagon"><svg aria-hidden="true"><use href="../games/pattern-train/assets/pattern-sprite.svg#wagon"/></svg><svg class="cargo" aria-hidden="true"><use href="../games/pattern-train/assets/pattern-sprite.svg#leaf"/></svg></div>
+<div class="wagon"><svg aria-hidden="true"><use href="../games/pattern-train/assets/pattern-sprite.svg#wagon"/></svg><svg class="cargo" aria-hidden="true"><use href="../games/pattern-train/assets/pattern-sprite.svg#flower"/></svg></div>
+<div class="wagon"><svg aria-hidden="true"><use href="../games/pattern-train/assets/pattern-sprite.svg#wagon"/></svg><svg class="cargo" aria-hidden="true"><use href="../games/pattern-train/assets/pattern-sprite.svg#leaf"/></svg></div>
+<div class="wagon"><svg aria-hidden="true"><use href="../games/pattern-train/assets/pattern-sprite.svg#wagon"/></svg><span class="missing">?</span></div>
+</div>
+<div class="choices" aria-label="候选图案样式，非交互"><div class="choice"><svg aria-hidden="true"><use href="../games/pattern-train/assets/pattern-sprite.svg#leaf"/></svg>叶子</div><div class="choice" data-state="selected"><svg aria-hidden="true"><use href="../games/pattern-train/assets/pattern-sprite.svg#flower"/></svg>✓ 花朵</div><div class="choice"><svg aria-hidden="true"><use href="../games/pattern-train/assets/pattern-sprite.svg#mushroom"/></svg>蘑菇</div></div>
+<p class="feedback">一片叶子，一朵花。你发现它们在轮流出现了吗？</p>
+</div><aside class="study-help"><h3>一起找规律</h3><p>① 从左往右看。<br>② 点一个图案，装进空车厢。<br>③ 装对了，再去下一站。</p><span class="study-action">给我一点提示</span><span class="study-action primary">下一站 ↗（完成后）</span><p class="design-label">5～8 岁 · 规律推理<br>没有扣分，也不用抢时间</p></aside></div>
+</section>
+<section id="picnic" class="game-study" aria-labelledby="picnic-title">
+<h2 id="picnic-title">野餐分分乐</h2><p>数数小圆点，给每位朋友刚刚好的水果。</p>
+<div class="study-layout"><div class="study-board">
+<div class="study-status"><span>第 2 / 8 次野餐</span><span>点一下，放一个</span></div>
+<div class="picnic-table">
+<div class="friend"><svg aria-hidden="true"><use href="../games/picnic-count/assets/picnic-sprite.svg#rabbit"/></svg><div class="request">小兔想要 2 个苹果<span class="dots" aria-hidden="true">●●</span></div><div class="plate"><svg aria-hidden="true"><use href="../games/picnic-count/assets/picnic-sprite.svg#plate"/></svg><div class="plate-fruit"><svg aria-hidden="true"><use href="../games/picnic-count/assets/picnic-sprite.svg#apple"/></svg></div></div><span>现在有 1 个</span><span class="study-action">＋ 放一个</span><span class="study-action">− 拿回一个</span></div>
+<div class="friend"><svg aria-hidden="true"><use href="../games/picnic-count/assets/picnic-sprite.svg#bear"/></svg><div class="request">小熊想要 3 个苹果<span class="dots" aria-hidden="true">●●●</span></div><div class="plate"><svg aria-hidden="true"><use href="../games/picnic-count/assets/picnic-sprite.svg#plate"/></svg></div><span>现在有 0 个</span><span class="study-action">＋ 放一个</span><span class="study-action">− 拿回一个</span></div>
+</div><div class="choices"><div class="choice" data-state="selected"><svg aria-hidden="true"><use href="../games/picnic-count/assets/picnic-sprite.svg#apple"/></svg>✓ 苹果</div><div class="choice"><svg aria-hidden="true"><use href="../games/picnic-count/assets/picnic-sprite.svg#pear"/></svg>梨子</div></div>
+<p class="feedback">已选苹果。点朋友下面的「放一个」，多放了也能拿回来。</p>
+</div><aside class="study-help"><h3>刚刚好的分享</h3><p>① 看水果和小圆点。<br>② 选水果，再放进盘子。<br>③ 大家都拿到，开野餐！</p><span class="study-action">重新分一分</span><span class="study-action primary">分好啦，检查一下</span><p class="design-label">4～7 岁 · 点数与数量<br>不限定操作次数</p></aside></div>
+</section>
+<section id="assets" class="game-study" aria-labelledby="assets-title"><h2 id="assets-title">封面、补充素材与反馈</h2>
+<div class="cover-row"><img src="../assets/pattern-train.svg" width="600" height="350" alt="花花小火车封面"><img src="../assets/picnic-count.svg" width="600" height="350" alt="野餐分分乐封面"></div>
+<div class="asset-strip">
+<figure><svg aria-hidden="true"><use href="../games/pattern-train/assets/pattern-sprite.svg#berry"/></svg><figcaption>berry · 浆果</figcaption></figure>
+<figure><svg aria-hidden="true"><use href="../games/pattern-train/assets/pattern-sprite.svg#engine"/></svg><figcaption>engine · 火车头</figcaption></figure>
+<figure><svg aria-hidden="true"><use href="../games/picnic-count/assets/picnic-sprite.svg#basket"/></svg><figcaption>basket · 野餐篮</figcaption></figure>
+</div>
+<p class="feedback" data-state="retry">再看看 ↻　小兔还差 1 个苹果。数数圆点，再试一次吧。</p>
+<p class="feedback" data-state="success">✓ 刚刚好！谢谢你照顾每位朋友。准备好后，再来一次野餐。</p>
+<p class="feedback" data-state="success">✓ 找到规律啦！叶子、花朵，两节一组。准备好后，去下一站。</p>
+</section>
+</main></body></html>

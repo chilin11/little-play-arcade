@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="350" viewBox="0 0 600 350" fill="none" role="img" aria-labelledby="title desc">
+  <title id="title">2048 · 积少成多</title><desc id="desc">奶油杏色背景上，一块微微倾斜的数字棋盘，两个小数字合成新的可能。</desc>
+  <defs>
+    <linearGradient id="paper" x2="600" y2="350" gradientUnits="userSpaceOnUse"><stop stop-color="#f5e8d6"/><stop offset="1" stop-color="#edd8bc"/></linearGradient>
+    <linearGradient id="wood" x2="250" y2="250" gradientUnits="userSpaceOnUse"><stop stop-color="#d7bca0"/><stop offset="1" stop-color="#c6a487"/></linearGradient>
+    <filter id="shadow" x="-30%" y="-20%" width="170%" height="170%"><feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#97613c" flood-opacity=".19"/></filter>
+  </defs>
+  <path fill="url(#paper)" d="M0 0h600v350H0z"/>
+  <circle cx="300" cy="168" r="143" stroke="#d9bca0" stroke-dasharray="4 8"/>
+  <ellipse cx="302" cy="277" rx="159" ry="24" fill="#cba582" opacity=".18"/>
+  <g transform="translate(180 36) rotate(-9 125 125)" filter="url(#shadow)">
+    <rect y="7" width="250" height="250" rx="16" fill="#b89374"/>
+    <rect width="250" height="250" rx="16" fill="url(#wood)" stroke="#c8a88a"/>
+    <g fill="#e3ceb7"><rect x="13" y="13" width="50" height="50" rx="7"/><rect x="71" y="13" width="50" height="50" rx="7"/><rect x="129" y="13" width="50" height="50" rx="7"/><rect x="187" y="13" width="50" height="50" rx="7"/><rect x="13" y="71" width="50" height="50" rx="7"/><rect x="71" y="71" width="50" height="50" rx="7"/><rect x="129" y="71" width="50" height="50" rx="7"/><rect x="187" y="71" width="50" height="50" rx="7"/><rect x="13" y="129" width="50" height="50" rx="7"/><rect x="71" y="129" width="50" height="50" rx="7"/><rect x="129" y="129" width="50" height="50" rx="7"/><rect x="187" y="129" width="50" height="50" rx="7"/><rect x="13" y="187" width="50" height="50" rx="7"/><rect x="71" y="187" width="50" height="50" rx="7"/><rect x="129" y="187" width="50" height="50" rx="7"/><rect x="187" y="187" width="50" height="50" rx="7"/></g>
+    <rect x="13" y="13" width="50" height="50" rx="7" fill="#fff6e7"/><rect x="13" y="71" width="50" height="50" rx="7" fill="#f5e4c6"/><rect x="71" y="71" width="50" height="50" rx="7" fill="#fff6e7"/>
+    <rect x="13" y="129" width="50" height="50" rx="7" fill="#eab17d"/><rect x="71" y="129" width="50" height="50" rx="7" fill="#e99964"/><rect x="129" y="129" width="50" height="50" rx="7" fill="#f5e4c6"/>
+    <rect x="13" y="187" width="50" height="50" rx="7" fill="#bc6b43"/><rect x="71" y="187" width="50" height="50" rx="7" fill="#dab264"/><rect x="129" y="187" width="50" height="50" rx="7" fill="#eab17d"/><rect x="187" y="187" width="50" height="50" rx="7" fill="#fff6e7"/>
+    <g font-family="Arial, sans-serif" font-size="23" font-weight="700" text-anchor="middle" dominant-baseline="central" fill="#795a3d"><text x="38" y="38">2</text><text x="38" y="96">4</text><text x="96" y="96">2</text><text x="38" y="154">8</text><text x="96" y="154">16</text><text x="154" y="154">4</text><text x="38" y="212" fill="#fff7e8">64</text><text x="96" y="212" font-size="19">128</text><text x="154" y="212">8</text><text x="212" y="212">2</text></g>
+  </g>
+  <g transform="translate(403 84) rotate(12)" filter="url(#shadow)"><rect width="92" height="92" rx="16" fill="#9d6c30"/><rect x="5" y="5" width="82" height="82" rx="12" stroke="#e9c780"/><text x="46" y="57" fill="#fff2cf" font-family="Arial, sans-serif" font-size="29" font-weight="700" text-anchor="middle">2048</text></g>
+  <path d="M114 196c-10 27-4 55 20 73M118 232c-25-2-32-16-28-29 20 2 32 15 28 29M122 247c2-27 18-37 31-33 0 20-13 35-31 33" fill="#cda77e" stroke="#bb9066" stroke-width="2" stroke-linejoin="round"/>
+  <path d="m120 99 3 10 10 3-10 3-3 10-3-10-10-3 10-3ZM470 229l3 8 8 3-8 3-3 8-3-8-8-3 8-3Z" fill="#d2a675"/>
+  <circle cx="497" cy="193" r="3" fill="#cfb28e"/><circle cx="98" cy="153" r="3" fill="#dcc2a1"/>
+  <text x="300" y="329" text-anchor="middle" fill="#a08365" font-family="sans-serif" font-size="9" letter-spacing="3">SMALL NUMBERS. LITTLE WONDERS.</text>
+</svg>

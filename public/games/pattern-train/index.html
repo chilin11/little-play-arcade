@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f7f2e8">
+  <meta name="description" content="看看图案怎样重复排列，给花花小火车补上下一节车厢。">
+  <title>花花小火车 · 发现重复规律</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="game.js"></script>
+</head>
+<body>
+  <header class="header">
+    <a class="brand" href="./"><span class="brand-mark" aria-hidden="true">✿</span><span>花花小火车<small>LITTLE PATTERNS</small></span></a>
+    <a class="hall-link" href="../../index.html" target="_top">← 游戏大厅</a>
+  </header>
+  <main>
+    <section class="intro">
+      <div>
+        <p class="eyebrow">LITTLE PATTERNS, BIG DISCOVERIES</p>
+        <h1>给小火车，<span>装上下一节图案。</span></h1>
+        <p>看看前面的图案怎样排队，找出重复的小组。没有倒计时，慢慢发现就好。</p>
+      </div>
+      <div class="intro-art" aria-hidden="true">🚂 <i>✿</i> 🍃</div>
+    </section>
+    <div class="game-layout">
+      <section class="board-panel" aria-label="花花小火车规律游戏">
+        <div class="board-top"><span><i></i> <span id="level-name">第 1 站</span></span><span id="station-status">不计时，慢慢找</span></div>
+        <div id="progress" class="progress" role="group" aria-label="九站进度"></div>
+        <div class="station-heading">
+          <h2 id="station-title" tabindex="-1">第 1 / 9 站</h2>
+          <p id="station-instruction">最后一节车厢空着，应该装什么？</p>
+        </div>
+        <div class="train-scene">
+          <div class="train-head" aria-hidden="true">
+            <svg viewBox="0 0 160 130"><use href="assets/pattern-sprite.svg#engine"></use></svg>
+          </div>
+          <div id="train-line" class="train-line" role="group" aria-label="六节车厢图案"></div>
+          <p id="pattern-caption" class="sr-only">图案从左往右排列，空车厢等待选择。</p>
+        </div>
+        <div id="choices" class="choices" role="group" aria-label="选择要装进空车厢的图案"></div>
+        <div id="feedback" class="feedback" role="status" aria-live="polite" aria-atomic="true">先从左往右看，找找重复的小组吧。</div>
+      </section>
+      <aside>
+        <section class="control-card">
+          <div class="section-heading"><h2>小小规律观察员</h2><span>TAKE YOUR TIME</span></div>
+          <div id="hint-readout" class="hint-readout" hidden></div>
+          <button id="hint" class="hint-button" type="button">✦ 给我一点提示</button>
+          <button id="retry" class="secondary-button" type="button" hidden>↻ 再试一次</button>
+          <button id="restart" class="secondary-button" type="button">↻ 重新开始本站</button>
+          <p id="save-note" class="save-note">走过的站点会在这台设备上留下小树叶。</p>
+        </section>
+        <section class="rules-card" aria-labelledby="how-to">
+          <h2 id="how-to">怎么玩</h2>
+          <p><b>①</b> 从左往右看，找出重复的图案小组。</p>
+          <p><b>②</b> 选一个图案，装进最后的空车厢。</p>
+          <p><b>③</b> 装对了再去下一站；答错也没有扣分。</p>
+          <p class="grownup-note">适合 5～8 岁 · 规律观察<br>所有线索一直看得见</p>
+        </section>
+      </aside>
+    </div>
+    <footer><span>每一节车厢，都藏着一个小小的发现。</span><span>MADE FOR LITTLE PATTERN FINDERS ✿</span></footer>
+  </main>
+  <dialog id="win-dialog" aria-labelledby="win-title">
+    <div class="win-art" aria-hidden="true">🚂✿</div>
+    <p class="eyebrow">PATTERN FOUND!</p>
+    <h2 id="win-title">找到规律啦！</h2>
+    <p id="win-copy">你找到了下一节车厢的图案。</p>
+    <div class="dialog-actions">
+      <button id="replay" class="secondary-button" type="button">再试一次</button>
+      <button id="next-level" class="primary-button" type="button">下一站 →</button>
+    </div>
+  </dialog>
+</body>
+</html>

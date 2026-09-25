@@ -1,0 +1,6 @@
+**
+!public/
+!public/**
+!deploy/
+!deploy/Caddyfile
+!Dockerfile

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f6f1e9">
+  <title>2048 · 让小小的数字，慢慢长大</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="game.js"></script>
+</head>
+<body>
+  <header class="header">
+    <a class="brand" href="./" aria-label="2048 首页"><span class="brand-icon" aria-hidden="true">2ⁿ</span><strong>2048</strong><span class="brand-en">A LITTLE MORE</span></a>
+    <a class="hall-link" href="../../index.html" target="_top">← 返回大厅</a>
+  </header>
+  <main>
+    <section class="intro">
+      <div><p class="eyebrow">SMALL NUMBERS, LITTLE WONDERS</p><h1>一点一点，<span>积少成多。</span></h1><p class="intro-copy">相同的数字相遇，就有新的可能。慢慢来，不赶时间。</p></div>
+      <div class="intro-mark" aria-hidden="true"><span>2</span><span>4</span><span>8</span></div>
+    </section>
+    <div class="game-layout">
+      <section class="board-panel" aria-label="2048 游戏区">
+        <div class="board-top"><span><i aria-hidden="true"></i> 数字的漫游</span><span>4 × 4 <b>/</b> 自由合并</span></div>
+        <div id="board" class="board" role="group" tabindex="0" aria-label="4 行 4 列数字棋盘" aria-describedby="keyboard-help"></div>
+        <div class="board-bottom"><span>每一次相遇，都算数。</span><span>目标 <strong>2048</strong></span></div>
+      </section>
+      <aside class="sidebar">
+        <section class="control-card" aria-labelledby="journey-title">
+          <div class="section-heading"><h2 id="journey-title">这一程的收获</h2><span>YOUR PROGRESS</span></div>
+          <div class="scores"><div class="score-box"><span>当前得分</span><strong id="score">0</strong></div><div class="score-box best"><span>最佳记录 <span aria-hidden="true">✧</span></span><strong id="best">0</strong></div></div>
+          <p id="status" class="status" role="status" aria-live="polite" aria-atomic="true">从两个小数字开始，试着移动一下。</p>
+          <div class="actions"><button id="restart" class="primary-button">↻ 重新开始</button><button id="undo" class="secondary-button" disabled>↶ 撤销一步</button></div>
+          <div class="direction-section"><p id="keyboard-help">方向键 / WASD · 滑动棋盘 · 点按方向</p><div class="direction-pad" role="group" aria-label="移动数字"><button id="move-up" data-direction="up" aria-label="向上移动">↑</button><button id="move-left" data-direction="left" aria-label="向左移动">←</button><span class="pad-center" aria-hidden="true">✦</span><button id="move-right" data-direction="right" aria-label="向右移动">→</button><button id="move-down" data-direction="down" aria-label="向下移动">↓</button></div></div>
+          <p id="save-note" class="save-note">进度自动保存，下次接着玩。</p>
+        </section>
+        <section class="rules-card" aria-labelledby="rules-title"><div class="section-heading"><h2 id="rules-title">相遇之前</h2><span>HOW TO PLAY</span></div><div class="merge-example" aria-hidden="true"><span>2</span><b>＋</b><span>2</span><b>→</b><span>4</span></div><p>向同一方向移动全部方块，相邻的<strong>相同数字</strong>会合成它们的和，每块每步只合并一次。</p><p>每次有效移动后，会出现一个 2 或 4。合出 <strong>2048</strong> 即获胜，也可以继续挑战；棋盘填满且无法合并时结束。</p><div class="rule-foot">没有倒计时 · 留一点空位，也留一点余地</div></section>
+      </aside>
+    </div>
+    <footer><span>「 小小的积累，也有大大的可能。 」</span><span>MADE FOR A QUIET MOMENT ✳</span></footer>
+  </main>
+  <dialog id="restart-dialog" aria-labelledby="restart-title" aria-describedby="restart-description"><p class="eyebrow">A FRESH START</p><h2 id="restart-title">换个思路，再出发？</h2><p id="restart-description">当前棋盘与撤销记录将被清空，最佳记录会保留。</p><div class="dialog-actions"><button id="cancel-restart" class="secondary-button" autofocus>继续这一局</button><button id="confirm-restart" class="primary-button">确认重开</button></div></dialog>
+  <dialog id="result-dialog" aria-labelledby="result-title" aria-describedby="result-description"><p class="eyebrow" id="result-eyebrow">A LITTLE WONDER</p><h2 id="result-title">你好，2048！</h2><p id="result-description">小小的积累，终于闪光。还想看看数字能走多远吗？</p><div class="dialog-actions"><button id="continue" class="primary-button">继续挑战</button><button id="result-undo" class="secondary-button">撤销一步</button><button id="retry" class="secondary-button">再来一局</button></div></dialog>
+</body>
+</html>

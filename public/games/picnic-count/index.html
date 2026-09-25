@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f7f2e8">
+  <meta name="description" content="数数小圆点，把刚刚好的苹果和梨分给森林朋友。">
+  <title>野餐分分乐 · 给朋友刚刚好的水果</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="game.js"></script>
+</head>
+<body>
+  <header class="header">
+    <a class="brand" href="./"><span class="brand-mark" aria-hidden="true">♡</span><span>野餐分分乐<small>PICNIC COUNT</small></span></a>
+    <a class="hall-link" href="../../index.html" target="_top">← 游戏大厅</a>
+  </header>
+  <main>
+    <section class="intro">
+      <div>
+        <p class="eyebrow">JUST ENOUGH FOR EVERY FRIEND</p>
+        <h1>把水果，<span>分得刚刚好。</span></h1>
+        <p>先数一数小圆点，再把苹果或梨一个一个放进朋友的盘子。多了可以拿回来，少了再添一个。</p>
+      </div>
+      <div class="intro-art" aria-hidden="true">🍎 <i>♡</i> 🧺</div>
+    </section>
+    <div class="game-layout">
+      <section class="board-panel" aria-label="野餐分分乐数量游戏">
+        <div class="board-top"><span><i></i> <span id="level-name">第 1 次野餐</span></span><span id="level-status">点一下，放一个</span></div>
+        <div id="progress" class="progress" role="group" aria-label="八次野餐进度"></div>
+        <div class="picnic-heading">
+          <h2 id="level-title" tabindex="-1">第 1 / 8 次野餐</h2>
+          <p id="level-instruction">看水果和小圆点，给每位朋友分好刚刚好的数量。</p>
+        </div>
+        <div class="picnic-table">
+          <article id="rabbit-card" class="friend" data-friend="rabbit" aria-labelledby="rabbit-name">
+            <div class="friend-head">
+              <svg class="friend-icon" viewBox="0 0 100 100" aria-hidden="true"><use href="assets/picnic-sprite.svg#rabbit"></use></svg>
+              <div>
+                <h3 id="rabbit-name">小兔</h3>
+                <p id="rabbit-request" class="request">小兔想要 1 个苹果</p>
+                <div id="rabbit-dots" class="dots" aria-label="小兔需要 1 个"></div>
+              </div>
+            </div>
+            <div class="plate-wrap">
+              <svg class="plate-art" viewBox="0 0 160 120" aria-hidden="true"><use href="assets/picnic-sprite.svg#plate"></use></svg>
+              <div id="rabbit-plate" class="plate-fruit" role="list" aria-label="小兔盘子里的水果"></div>
+            </div>
+            <p id="rabbit-count" class="plate-count">现在有 0 个</p>
+            <div class="friend-actions">
+              <button id="rabbit-add" class="add-button" type="button" data-friend="rabbit" data-action="add" aria-label="先选水果，再给小兔放一个">＋ 放一个</button>
+              <button id="rabbit-remove" class="remove-button" type="button" data-friend="rabbit" data-action="remove" aria-label="从小兔盘里拿回最后放入的一个水果">− 拿回一个</button>
+            </div>
+          </article>
+          <article id="bear-card" class="friend" data-friend="bear" aria-labelledby="bear-name">
+            <div class="friend-head">
+              <svg class="friend-icon" viewBox="0 0 100 100" aria-hidden="true"><use href="assets/picnic-sprite.svg#bear"></use></svg>
+              <div>
+                <h3 id="bear-name">小熊</h3>
+                <p id="bear-request" class="request">小熊想要 2 个苹果</p>
+                <div id="bear-dots" class="dots" aria-label="小熊需要 2 个"></div>
+              </div>
+            </div>
+            <div class="plate-wrap">
+              <svg class="plate-art" viewBox="0 0 160 120" aria-hidden="true"><use href="assets/picnic-sprite.svg#plate"></use></svg>
+              <div id="bear-plate" class="plate-fruit" role="list" aria-label="小熊盘子里的水果"></div>
+            </div>
+            <p id="bear-count" class="plate-count">现在有 0 个</p>
+            <div class="friend-actions">
+              <button id="bear-add" class="add-button" type="button" data-friend="bear" data-action="add" aria-label="先选水果，再给小熊放一个">＋ 放一个</button>
+              <button id="bear-remove" class="remove-button" type="button" data-friend="bear" data-action="remove" aria-label="从小熊盘里拿回最后放入的一个水果">− 拿回一个</button>
+            </div>
+          </article>
+        </div>
+        <p id="selection-status" class="selection-status" role="status" aria-live="polite">还没有选水果。先选苹果或梨。</p>
+        <div id="feedback" class="feedback" role="status" aria-live="polite" aria-atomic="true">先选一种水果，再给朋友放一个吧。</div>
+      </section>
+      <aside>
+        <section class="control-card">
+          <div class="section-heading"><h2>水果小篮子</h2><span>ONE BY ONE</span></div>
+          <div id="fruit-choices" class="choices" role="group" aria-label="选择水果">
+            <button id="choose-apple" class="choice fruit-choice" type="button" data-fruit="apple" aria-pressed="false" aria-label="选择苹果">
+              <svg viewBox="0 0 100 100" aria-hidden="true"><use href="assets/picnic-sprite.svg#apple"></use></svg><span>苹果</span>
+            </button>
+            <button id="choose-pear" class="choice fruit-choice" type="button" data-fruit="pear" aria-pressed="false" aria-label="选择梨子">
+              <svg viewBox="0 0 100 100" aria-hidden="true"><use href="assets/picnic-sprite.svg#pear"></use></svg><span>梨子</span>
+            </button>
+          </div>
+          <p id="selected-fruit" class="selected-fruit" aria-live="polite">还没有选水果</p>
+          <button id="check" class="primary-button" type="button">✓ 分好啦，检查一下</button>
+          <button id="restart" class="secondary-button" type="button">↻ 重新分一分</button>
+          <p id="save-note" class="save-note">走过的野餐会在这台设备上留下小树叶。</p>
+        </section>
+        <section class="rules-card" aria-labelledby="how-to">
+          <h2 id="how-to">怎么玩</h2>
+          <p><b>①</b> 看水果图标、数字和小圆点，先选苹果或梨。</p>
+          <p><b>②</b> 点朋友下面的「放一个」，一个一个分进盘子。</p>
+          <p><b>③</b> 多了就「拿回一个」；两盘都刚刚好，再点检查。</p>
+          <p class="grownup-note">适合 4～7 岁 · 点数与数量<br>不计时，也没有失败惩罚</p>
+        </section>
+        <div class="basket-mark" aria-hidden="true"><svg viewBox="0 0 160 130"><use href="assets/picnic-sprite.svg#basket"></use></svg></div>
+      </aside>
+    </div>
+    <footer><span>每一个水果，都要去到刚刚好的盘子里。</span><span>MADE FOR LITTLE PICNIC KEEPERS ♡</span></footer>
+  </main>
+  <dialog id="win-dialog" aria-labelledby="win-title">
+    <div class="win-art" aria-hidden="true">🍎🍐</div>
+    <p class="eyebrow">A LOVELY LITTLE PICNIC!</p>
+    <h2 id="win-title">刚刚好！</h2>
+    <p id="win-copy">谢谢你照顾每位朋友。</p>
+    <div class="dialog-actions">
+      <button id="replay" class="secondary-button" type="button">再分一次</button>
+      <button id="next-level" class="primary-button" type="button">下一次野餐 →</button>
+    </div>
+  </dialog>
+</body>
+</html>

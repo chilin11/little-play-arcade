@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+  <title>花花小火车 · 图形与车厢素材</title>
+  <symbol id="leaf" viewBox="0 0 100 100">
+    <path d="M23 76C9 40 39 16 81 18C85 60 58 88 23 76Z" fill="#a9c598" stroke="#46644d" stroke-width="4" stroke-linejoin="round"/>
+    <path d="M18 84L65 35M38 63L36 43M49 52L69 54" fill="none" stroke="#46644d" stroke-width="4" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="flower" viewBox="0 0 100 100">
+    <g fill="#eeb6b0" stroke="#865c61" stroke-width="3"><ellipse cx="50" cy="29" rx="15" ry="20"/><ellipse cx="71" cy="46" rx="20" ry="15"/><ellipse cx="63" cy="70" rx="15" ry="20" transform="rotate(-30 63 70)"/><ellipse cx="36" cy="70" rx="15" ry="20" transform="rotate(30 36 70)"/><ellipse cx="28" cy="46" rx="20" ry="15"/></g>
+    <circle cx="50" cy="50" r="16" fill="#f4d685" stroke="#865c61" stroke-width="3"/><path d="M44 53Q50 59 56 53" fill="none" stroke="#865c61" stroke-width="3" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="mushroom" viewBox="0 0 100 100">
+    <path d="M38 47L32 85Q50 96 68 85L62 47" fill="#fff4d8" stroke="#79664c" stroke-width="4"/>
+    <path d="M10 55C10 4 90 4 90 55Q50 69 10 55Z" fill="#dc9777" stroke="#79664c" stroke-width="4"/>
+    <g fill="#fff4d8"><circle cx="31" cy="39" r="7"/><circle cx="53" cy="26" r="6"/><circle cx="73" cy="42" r="7"/></g>
+    <g fill="#79664c"><circle cx="44" cy="77" r="2"/><circle cx="57" cy="77" r="2"/></g>
+  </symbol>
+  <symbol id="berry" viewBox="0 0 100 100">
+    <path d="M51 31Q43 13 62 9" fill="none" stroke="#46644d" stroke-width="4" stroke-linecap="round"/>
+    <path d="M51 30Q26 30 24 12Q47 10 51 30" fill="#a9c598" stroke="#46644d" stroke-width="3"/>
+    <g fill="#b3a0c8" stroke="#6e5c85" stroke-width="3"><circle cx="36" cy="46" r="18"/><circle cx="64" cy="46" r="18"/><circle cx="27" cy="69" r="17"/><circle cx="73" cy="69" r="17"/><circle cx="50" cy="78" r="18"/><circle cx="50" cy="58" r="19"/></g>
+    <path d="M42 53L46 49" stroke="#fff9ee" stroke-width="4" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="wagon" viewBox="0 0 160 130">
+    <path d="M4 94H156" stroke="#60715b" stroke-width="6" stroke-linecap="round"/><rect x="14" y="10" width="132" height="87" rx="18" fill="#fff8e6" stroke="#8a9c79" stroke-width="4"/>
+    <path d="M17 82H143" stroke="#d8e1c9" stroke-width="6"/><g fill="#5e755a" stroke="#fff8e6" stroke-width="5"><circle cx="43" cy="108" r="15"/><circle cx="117" cy="108" r="15"/></g>
+  </symbol>
+  <symbol id="engine" viewBox="0 0 160 130">
+    <path d="M112 15H136V59H112Z" fill="#e4b978" stroke="#6d795a" stroke-width="4"/><path d="M19 16H90V92H19Z" fill="#aac497" stroke="#516c4e" stroke-width="4"/>
+    <rect x="30" y="27" width="43" height="33" rx="10" fill="#fff9e7"/><path d="M87 54H137Q149 54 149 67V96H87Z" fill="#e7b67e" stroke="#6d795a" stroke-width="4"/>
+    <path d="M12 14H96M8 96H153" stroke="#516c4e" stroke-width="7" stroke-linecap="round"/><g fill="#5e755a" stroke="#fff8e6" stroke-width="5"><circle cx="43" cy="108" r="16"/><circle cx="120" cy="108" r="16"/></g>
+    <circle cx="130" cy="72" r="4" fill="#6d795a"/>
+  </symbol>
+</svg>

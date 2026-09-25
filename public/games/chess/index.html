@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f4f2ec">
+  <title>国际象棋 · 在六十四格之间思考</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="game.js"></script>
+</head>
+<body>
+  <header class="header"><a class="brand" href="./"><span class="brand-mark" aria-hidden="true">♞</span><span>国际象棋<small>CHESS</small></span></a><a class="hall-link" href="../../index.html" target="_top">← 游戏大厅</a></header>
+  <main>
+    <section class="intro"><p class="eyebrow">SIXTY-FOUR SQUARES, ENDLESS IDEAS</p><h1>安静落子，<span>从容思考。</span></h1><p>白方先行。和身边的朋友，在六十四格之间下一盘完整的国际象棋。</p></section>
+    <div class="game-layout">
+      <section class="board-panel" aria-label="国际象棋棋盘">
+        <div class="board-top"><span><i></i> <span id="game-state">对局进行中</span></span><button id="flip" type="button">⇅ 旋转棋盘</button></div>
+        <div class="captured-row black-captures"><span>白方俘获</span><div id="white-captures" aria-label="白方俘获的棋子">—</div></div>
+        <div class="board-wrap"><div id="board" class="board" role="grid" aria-label="国际象棋棋盘，白方在下" aria-describedby="keyboard-help"></div></div>
+        <div class="captured-row"><span>黑方俘获</span><div id="black-captures" aria-label="黑方俘获的棋子">—</div></div>
+        <div class="board-bottom"><span id="last-move">白方先行</span><span id="move-number">第 1 回合</span></div>
+      </section>
+      <aside class="sidebar">
+        <section class="control-card">
+          <div class="section-heading"><h2>棋手席</h2><span>LOCAL TWO PLAYER</span></div>
+          <div class="players"><div id="black-player" class="player"><span class="piece-avatar dark">♚</span><div><strong>黑方</strong><small>后手</small></div><span class="turn-label">等待</span></div><div id="white-player" class="player active"><span class="piece-avatar light">♔</span><div><strong>白方</strong><small>先手</small></div><span class="turn-label">落子</span></div></div>
+          <div id="status" class="status" role="status" aria-live="polite" aria-atomic="true"><span id="status-icon" aria-hidden="true">✦</span><div><strong id="status-title">轮到白方</strong><p id="status-detail">选择一枚棋子，绿色标记就是可以到达的位置。</p></div></div>
+          <button id="undo" class="secondary-button" disabled>↶ 悔一步</button><button id="restart" class="primary-button">↻ 重新开始</button>
+        </section>
+        <section class="history-card"><div class="section-heading"><h2>落子记录</h2><span>MOVES</span></div><ol id="move-list"><li class="empty-history">第一步，等你落下。</li></ol></section>
+        <section class="rules-card"><h2><span aria-hidden="true">◎</span> 小小提示</h2><p>点击自己的棋子，再点击亮起的格子。王不能走进被攻击的位置；被将军时，必须先解除威胁。</p><p>完整支持<strong>王车易位、吃过路兵、兵升变、将军与将死</strong>，以及逼和、三次重复、五十回合与子力不足和棋。</p><p id="keyboard-help">键盘：方向键选择格子，Enter / 空格选棋或落子。棋盘可随时旋转。</p></section>
+      </aside>
+    </div>
+    <footer><span>好棋不怕慢，想清楚再落子。</span><span>A QUIET GAME BETWEEN FRIENDS ✳</span></footer>
+  </main>
+  <dialog id="promotion-dialog" aria-labelledby="promotion-title"><p class="eyebrow">ONE MORE STEP</p><h2 id="promotion-title">小兵想变成什么？</h2><p>走到最后一排，小兵可以升变。</p><div class="promotion-options"><button data-promotion="q" aria-label="升变为后"></button><button data-promotion="r" aria-label="升变为车"></button><button data-promotion="b" aria-label="升变为象"></button><button data-promotion="n" aria-label="升变为马"></button></div></dialog>
+  <dialog id="restart-dialog" aria-labelledby="restart-title"><h2 id="restart-title">重新开始这一盘？</h2><p>当前棋局和落子记录会被清空。</p><div class="dialog-actions"><button id="cancel-restart" class="secondary-button">继续下棋</button><button id="confirm-restart" class="primary-button">确认重开</button></div></dialog>
+</body>
+</html>

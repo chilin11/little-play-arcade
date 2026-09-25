@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f5efe2">
+  <meta name="description" content="星路接线室：轻触旋转线路板，让能量从起点连通所有信标。">
+  <title>星路接线室 · STAR CIRCUIT LAB</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="game.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="./" aria-label="星路接线室首页">
+      <span class="brand-mark" aria-hidden="true">✦</span>
+      <span class="brand-name">星路接线室<small>STAR CIRCUIT LAB</small></span>
+    </a>
+    <a class="hall-link" href="../../index.html" target="_top">← 游戏大厅</a>
+  </header>
+
+  <main>
+    <section class="intro" aria-labelledby="page-title">
+      <div>
+        <p class="eyebrow">A QUIET PLACE FOR BRIGHT IDEAS</p>
+        <h1 id="page-title">让道路接上，<span>点亮信标。</span></h1>
+        <p class="intro-copy">轻触方格里的线路板，让能量从固定起点出发，沿着相连的道路走遍每一枚信标。<br>不需要电路知识，只要观察、旋转，然后找到那条星路。</p>
+      </div>
+      <div class="intro-art" aria-hidden="true"><span>◇</span><i>✦</i><span>○</span></div>
+    </section>
+
+    <div class="game-layout">
+      <section class="board-panel" aria-label="星路接线棋盘">
+        <div class="board-top">
+          <span class="level-mark"><i></i><strong id="level-label">第 1 关 · 暖光入口</strong></span>
+          <span id="progress-label">信标 0 / 1</span>
+        </div>
+        <div id="board" class="board" role="grid" aria-label="线路板棋盘"></div>
+        <div class="board-bottom">
+          <p id="message" role="status" aria-live="polite">从蓝绿色的起点开始，慢慢接上每一条路。</p>
+          <span id="rotation-label">旋转 0 次</span>
+        </div>
+      </section>
+
+      <aside class="side-column">
+        <section class="control-card" aria-labelledby="control-title">
+          <div class="section-heading"><h2 id="control-title">接线台</h2><span>GENTLE PUZZLE</span></div>
+          <div class="stats" aria-label="当前关卡统计">
+            <div><strong id="moves">0</strong><span>本关旋转</span></div>
+            <div><strong id="hints">3</strong><span>剩余提示</span></div>
+            <div><strong id="best">—</strong><span>最少旋转</span></div>
+          </div>
+          <div class="button-stack">
+            <button id="hint" class="primary-button" type="button">✦ 给我一点提示</button>
+            <div class="button-row">
+              <button id="undo" class="secondary-button" type="button">↶ 撤销</button>
+              <button id="reset" class="secondary-button" type="button">↻ 重开</button>
+            </div>
+          </div>
+          <p id="save-note" class="save-note">进度与最好成绩会保存在当前浏览器。</p>
+        </section>
+
+        <section class="levels-card" aria-labelledby="levels-title">
+          <div class="section-heading"><h2 id="levels-title">选择关卡</h2><span id="unlock-label">已解锁 1 / 12</span></div>
+          <div id="level-list" class="level-list" role="list" aria-label="关卡选择"></div>
+          <p class="level-help">完成一关，就会打开下一枚星标。也可以按数字键快速选择已解锁关卡。</p>
+        </section>
+
+        <section class="rules-card" aria-labelledby="rules-title">
+          <h2 id="rules-title">怎么玩</h2>
+          <p><b>01</b> 找到蓝绿色的起点，能量会从那里出发。</p>
+          <p><b>02</b> 轻触线路板，每次顺时针转 90°，让道路接口对上。</p>
+          <p><b>03</b> 能量接通所有金色信标，这一关就完成了；多出来的出口不用担心。</p>
+          <p class="keyboard-tip">键盘：方向键移动焦点，Enter / Space 旋转。</p>
+        </section>
+      </aside>
+    </div>
+
+    <footer><span>一条路接上另一条路，星光就会继续前行。</span><span>MADE FOR CURIOUS MINDS ✦</span></footer>
+  </main>
+
+  <dialog id="win-dialog" class="dialog" aria-labelledby="win-title">
+    <div class="dialog-art" aria-hidden="true">✦</div>
+    <h2 id="win-title">所有信标都亮起来了</h2>
+    <p id="win-copy">星路已经接通。</p>
+    <div class="dialog-actions"><button id="dialog-replay" class="secondary-button" type="button">再走一次</button><button id="dialog-next" class="primary-button" type="button">下一关 →</button></div>
+  </dialog>
+</body>
+</html>

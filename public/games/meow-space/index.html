@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f7f5ff">
+  <title>喵喵星际队 · 三轨大冒险</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <a class="brand" href="./"><span class="brand-icon">✦</span><span>喵喵星际队<small>MEOW SPACE CLUB</small></span></a>
+      <div class="top-actions"><span class="edition">轻松冒险 · 10 个星球</span><button class="icon-button" id="soundButton" aria-label="打开声音" title="打开声音">♫<span class="sound-slash"></span></button><button class="icon-button" id="pauseButton" aria-label="暂停游戏" title="暂停 / P">Ⅱ</button></div>
+    </header>
+    <main class="layout">
+      <aside class="left-panel">
+        <div class="eyebrow"><span></span> 小小英雄，大大冒险</div>
+        <h1>宇宙那么大，<br>一起<span>喵</span>一下。</h1>
+        <p class="intro">驾驶你的猫猫飞船，穿过糖果星云。<br>左右闪一闪，坏蛋全退散！</p>
+        <section class="card mission-card">
+          <div class="section-label">本次航行 <span>MISSION</span></div>
+          <div class="mission-title"><span id="levelName">薄荷出发港</span><span class="level-chip" id="levelChip">01 / 10</span></div>
+          <div class="route" id="route" aria-label="10 关进度"></div>
+          <div class="mission-note" id="missionNote">先热热身，小怪们也刚刚睡醒。</div>
+        </section>
+        <section class="card pilot-card">
+          <div class="section-label">飞行员档案 <span>PILOT</span></div>
+          <div class="pilot"><div class="pilot-avatar">🐱</div><div><strong>奶糖队长</strong><span><i></i> 准备好拯救可爱了</span></div><span class="pilot-badge">01</span></div>
+          <div class="stat-row"><span>爱心护甲</span><div class="hearts" id="hearts">♥ ♥ ♥ ♥ ♥</div></div>
+          <div class="stat-row"><span>武器等级</span><strong id="weaponText">Lv.1 · 泡泡光弹</strong></div>
+          <div class="weapon-track"><div id="weaponTrack"></div></div>
+          <div class="pilot-footer"><span id="shieldText">护盾待补充</span><span id="damageText">攻击力 1.0</span></div>
+        </section>
+        <div class="tip"><span>✧</span><p>不必一直按射击。<br><strong>把注意力留给闪躲和捡宝贝。</strong></p></div>
+      </aside>
+
+      <section class="game-section" aria-label="游戏区域">
+        <div class="game-topline"><span><i></i> 糖果星云 · 探索中</span><span id="bestScore">最佳 00000</span></div>
+        <div class="game-frame" id="gameFrame">
+          <canvas id="game" width="540" height="760" aria-label="三轨射击游戏，左右方向键或 A D 移动，空格释放星星冲击"></canvas>
+          <div class="hud"><div class="hud-level"><span id="hudLevel">01</span><div>当前关卡<small id="hudStage">薄荷出发港</small></div></div><div class="hud-score"><span>✦</span><strong id="score">00000</strong></div></div>
+          <div class="stage-progress"><div id="stageProgress"></div></div>
+          <div class="mobile-vitals"><span id="mobileHearts">♥ ♥ ♥ ♥ ♥</span><span id="mobileWeapon">Lv.1 · ◇ 0</span></div>
+          <div class="boss-hud" id="bossHud" hidden><div><span id="bossName">棉花糖大王</span><span>BOSS</span></div><div class="boss-track"><div id="bossHealth"></div></div></div>
+          <div class="toast" id="toast" role="status"></div>
+          <div class="overlay" id="overlay">
+            <div class="overlay-content" id="overlayContent"></div>
+          </div>
+          <div class="lane-controls" id="laneControls"><button data-lane="0" aria-label="移动到左轨">‹</button><button data-lane="1" aria-label="移动到中轨">•</button><button data-lane="2" aria-label="移动到右轨">›</button></div>
+        </div>
+        <div class="game-bottom"><span><kbd>←</kbd><kbd>→</kbd> / <kbd>A</kbd><kbd>D</kbd> 左右移动</span><span><span class="auto-dot"></span> 自动射击已就绪</span></div>
+      </section>
+
+      <aside class="right-panel">
+        <section class="card supply-card">
+          <div class="section-label">宇宙补给站 <span>LOOT</span></div>
+          <h2>路过的好东西，<br>记得接住。</h2>
+          <div class="loot-item"><span class="loot-icon gun">↑</span><div><strong>火力糖果</strong><p>攒糖果升级，解锁多重光弹</p></div></div>
+          <div class="loot-item"><span class="loot-icon heart">♥</span><div><strong>爱心软糖</strong><p>回复生命，满血也能加分</p></div></div>
+          <div class="loot-item"><span class="loot-icon shield">◇</span><div><strong>泡泡护盾</strong><p>挡下两次伤害，安心冒险</p></div></div>
+          <div class="loot-item"><span class="loot-icon star">✦</span><div><strong>幸运小星星</strong><p>收集加分，还能加速充能</p></div></div>
+        </section>
+        <section class="burst-card"><div class="burst-heading"><span>✷</span><div><strong>星星冲击</strong><small>小怪太多？一键清场！</small></div></div><button id="burstButton" disabled><span id="burstLabel">✦ 能量已就绪</span><kbd>SPACE</kbd></button><div class="burst-track"><div id="burstTrack"></div></div><p>自动充能 · 对 Boss 也有效</p></section>
+        <section class="adventure-note"><span class="note-icon">⚑</span><div><strong>每一站都有小惊喜</strong><p>通关任选强化，3 / 6 / 9 / 10 关<br>还有圆滚滚的 Boss 等你！</p></div></section>
+        <div class="difficulty"><span>难度</span><span class="difficulty-pill">☁ 轻松一点，快乐很多</span></div>
+      </aside>
+    </main>
+    <footer><span>MADE FOR LITTLE SPACE EXPLORERS</span><span>不用下载，不用登录，即刻出发 ✧</span></footer>
+  </div>
+  <script src="game.js"></script>
+</body>
+</html>

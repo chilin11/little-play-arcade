@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f7f2">
+  <meta name="description" content="玩一会儿，一个慢慢长大的免费小游戏集合。棋类、益智、动作和儿童创意游戏，不用下载，不用登录，打开就玩。">
+  <title>玩一会儿 · 选个游戏，直接开玩</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/site.css">
+  <link rel="stylesheet" href="assets/collection.css">
+  <script type="module" src="assets/home.js"></script>
+</head>
+<body class="collection-home">
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="./" aria-label="玩一会儿首页"><span class="brand-symbol" aria-hidden="true">w<span>•</span></span><span>玩一会儿<small>JUST A LITTLE PLAY</small></span></a>
+      <nav class="main-nav" aria-label="主导航"><a href="#library" class="active">发现游戏</a><a href="#library" id="nav-favorites">我的收藏 <span id="favorite-count">0</span></a></nav>
+      <button class="button button-small random-button" type="button"><span aria-hidden="true">⚄</span> 随机玩一个 <span aria-hidden="true">↗</span></button>
+    </div>
+  </header>
+  <main id="main" class="home-main">
+    <section id="spotlight-section" class="spotlight-section" hidden aria-labelledby="spotlight-title">
+      <div class="spotlight-heading"><div><div class="eyebrow">A LITTLE TIME, WELL SPENT</div><h2 id="spotlight-title">这一站，发现新喜欢</h2></div><div class="spotlight-tabs" role="group" aria-label="精选游戏"><button type="button" data-spotlight="newest" aria-pressed="true">新作上架</button><button type="button" data-spotlight="featured" aria-pressed="false">本周推荐</button></div></div>
+      <div id="spotlight-games" class="spotlight-grid"></div>
+      <p id="spotlight-status" class="sr-only" role="status"></p>
+    </section>
+    <section class="library" id="library" aria-labelledby="library-title">
+      <div class="section-top"><div><div class="eyebrow">THE PLAY COLLECTION</div><h1 id="library-title">选个游戏，直接开玩<span id="game-total" class="number-tag">—</span></h1></div><label class="search-box"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><input type="search" id="search" placeholder="搜搜游戏、类型、关键词…" aria-label="搜索游戏" maxlength="100"><kbd aria-hidden="true">/</kbd></label></div>
+      <div id="collection-discovery" class="collection-discovery" hidden><div class="discovery-intro"><strong>按心情，也按成长</strong><p id="collection-overview"></p></div><div id="quick-picks" class="quick-picks" role="group" aria-label="按年龄或玩法快速查找"></div></div>
+      <div class="filter-row"><div id="filters" class="filters" role="group" aria-label="筛选游戏"><button type="button" data-filter="all" class="selected" aria-pressed="true">全部游戏</button><button type="button" data-filter="favorites" aria-pressed="false">♡ 我的收藏</button></div><label class="sort-label">排序 <select id="sort" aria-label="游戏排序"><option value="recommended">推荐优先</option><option value="newest">最近上架</option><option value="name">名称排序</option></select></label></div>
+      <p id="results-status" class="collection-results" role="status" aria-live="polite"></p>
+      <div id="game-grid" class="game-grid" aria-busy="true"><p class="loading-state">正在打开快乐的入口…</p></div>
+      <div id="empty-state" class="empty-state" hidden><span aria-hidden="true">⌕</span><h3>还没有找到这个快乐</h3><p id="empty-message">试试其他关键词，或看看全部游戏。</p><button id="reset-filters" type="button" class="button button-dark">看看全部游戏 ↗</button></div>
+    </section>
+    <section id="recent-section" class="recent-section" hidden aria-labelledby="recent-title"><div class="section-top"><div><div class="eyebrow">ONE MORE ROUND?</div><h2 id="recent-title">再来一局</h2></div><button class="text-button" id="clear-recent" type="button">清空记录 ↗</button></div><div id="recent-games" class="recent-grid"></div></section>
+    <section class="closing-note"><div class="closing-icon" aria-hidden="true">＋</div><div><h2>快乐不止这些，敬请期待。</h2><p>这里是一个慢慢长大的小游戏集合。新的灵感，新的游戏，会陆续在这里见面。</p></div><span class="closing-stamp" aria-hidden="true">MORE FUN<br>ON THE WAY ↗</span></section>
+    <noscript><div class="empty-state"><h2>不启用 JavaScript 也可以找到游戏</h2><p><a href="games/gomoku/index.html">打开五子棋</a> · <a href="games/forest-post/index.html">打开森林邮差</a> · <a href="games/magic-wardrobe/index.html">打开魔法衣橱</a></p><p>游戏本身需要启用 JavaScript 才能运行。</p></div></noscript>
+  </main>
+  <footer class="site-footer"><a class="footer-brand" href="./">玩一会儿<span>小小的游戏，刚刚好的快乐。</span></a><span>收藏与游玩记录仅保存在当前浏览器</span><a href="#main">回到顶部 ↑</a></footer>
+  <div class="toast" id="toast" role="status"></div>
+</body>
+</html>

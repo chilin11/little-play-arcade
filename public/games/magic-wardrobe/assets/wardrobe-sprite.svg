@@ -1,0 +1,351 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 400">
+  <title>林间小裁缝 · 原创分层衣橱</title>
+  <desc>统一 320 × 400 穿衣坐标。使用本文件的 symbol 引用；完整清单及预览裁切见 catalog.js。</desc>
+  <defs>
+    <g id="motif-flower" stroke="#627966" stroke-width="1.4" stroke-linejoin="round">
+      <path d="M0 3v12m0-5q-9 0-7-6 6-1 7 6m0 2q8-1 7-6-6 0-7 6" fill="#91ad88"/>
+      <path d="M0-3c-7-9-13 2-5 5-4 8 8 10 9 2 9-1 6-12-1-8Q2-9 0-3Z" fill="#fff5df"/>
+      <circle r="2.5" fill="#e8bd69" stroke="none"/>
+    </g>
+    <g id="motif-star" fill="#ffedb7" stroke="#b99458" stroke-width="1.2" stroke-linejoin="round"><path d="m0-8 2.4 5.5 6 .7-4.5 4 1.2 6L0 5l-5.1 3.2 1.2-6-4.5-4 6-.7Z"/></g>
+    <g id="body-shape" stroke="#776e60" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M140 175h40l4 18c16 9 26 39 23 64l-8 49-11 49c-1 9-28 9-29-1l-1-43-4 43c-1 10-27 9-27 0l-9-50-6-47c-3-26 7-55 24-64Z" fill="var(--fur,#f9ead7)"/>
+      <path d="M121 195c-13 3-23 21-30 39-8 17-10 30-3 36 7 7 16 1 21-7l23-45m67-23c13 3 23 21 30 39 8 17 10 30 3 36-7 7-16 1-21-7l-23-45" fill="var(--fur,#f9ead7)"/>
+      <path d="m89 251 5 3m132-3-5 3" fill="none" stroke="#bba38a"/>
+      <path d="M116 253q44 9 88 0l-4 43h-31l-9-11-9 11h-30Z" fill="#fff9ef" stroke="#c9bca8"/>
+    </g>
+    <g id="face-details" stroke-linecap="round" stroke-linejoin="round">
+      <ellipse cx="160" cy="151" rx="25" ry="19" fill="#fff8ec"/>
+      <g fill="#365247"><ellipse cx="137" cy="130" rx="4.4" ry="6"/><ellipse cx="183" cy="130" rx="4.4" ry="6"/></g>
+      <g fill="#fffdf7"><circle cx="138" cy="128" r="1.6"/><circle cx="184" cy="128" r="1.6"/></g>
+      <g fill="#e8aa98" opacity=".58"><ellipse cx="120" cy="147" rx="11" ry="7"/><ellipse cx="200" cy="147" rx="11" ry="7"/></g>
+      <path d="M155 146q5-4 10 0l-5 5Z" fill="#a77669" stroke="#a77669" stroke-width="2"/>
+      <path d="M160 152v4m0-1q-6 8-12 1m12-1q6 8 12 1" fill="none" stroke="#66705d" stroke-width="1.8"/>
+      <path d="m126 116 7-2m54 0 7 2" stroke="#8f8678" stroke-width="1.6"/>
+    </g>
+  </defs>
+
+  <!-- BODY: shared hands, torso, legs; species-specific ears and faces -->
+  <symbol id="character-rabbit" viewBox="0 0 320 400">
+    <g style="--fur:#fff2df" stroke="#92816f" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <use href="#body-shape"/>
+      <path d="M123 97C106 79 102 28 118 21c18-7 32 44 27 70m29 1c-1-32 14-71 31-65 18 7 3 58-10 73" fill="#fff2df"/>
+      <path d="M124 79c-7-20-10-43-5-45 6-2 16 26 16 45m49 2c3-22 14-43 19-40 5 4-4 30-11 43" fill="#e8b7ab" stroke="none"/>
+      <path d="M107 97q15-19 53-17c42-2 65 24 64 53 0 34-28 56-64 56-39 0-65-23-65-54 0-14 5-27 12-38Z" fill="#fff2df"/>
+      <path d="m152 85 6-5 3 7 7-5" fill="none" stroke="#d3bca3"/>
+      <use href="#face-details" stroke="none"/>
+    </g>
+  </symbol>
+  <symbol id="character-cat" viewBox="0 0 320 400">
+    <g style="--fur:#e6deef" stroke="#887a93" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M194 283c56 23 67-17 48-24-10-3-11 13-23 7" fill="none" stroke="#c6b5d5" stroke-width="12"/>
+      <use href="#body-shape"/>
+      <path d="M104 113c-9-24-6-62 1-64 10-3 26 19 37 35q18-5 37 0c10-16 26-38 36-35 7 2 10 40 1 64 6 10 8 23 4 37-7 25-28 39-60 39s-55-15-61-40c-3-14-1-26 5-36Z" fill="#e6deef"/>
+      <path d="m110 94-3-31 22 26m61 0 23-26-4 31" fill="#dca7af" stroke="none"/>
+      <path d="m151 83 3 16m6-18 1 13m7-11-1 16" stroke="#b6a6c6" stroke-width="4"/>
+      <use href="#face-details" stroke="none"/>
+      <path d="m102 145-17-4m18 12-15 3m129-11 17-4m-18 12 15 3" fill="none" stroke="#887a93" stroke-width="1.7"/>
+    </g>
+  </symbol>
+  <symbol id="character-bear" viewBox="0 0 320 400">
+    <g style="--fur:#c99f78" stroke="#856e57" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <use href="#body-shape"/>
+      <circle cx="109" cy="89" r="25" fill="#c99f78"/><circle cx="211" cy="89" r="25" fill="#c99f78"/>
+      <circle cx="109" cy="89" r="14" fill="#e7bd9d" stroke="none"/><circle cx="211" cy="89" r="14" fill="#e7bd9d" stroke="none"/>
+      <path d="M97 129c0-35 25-53 63-53s63 18 63 53c0 36-24 60-63 60s-63-24-63-60Z" fill="#c99f78"/>
+      <path d="M144 86q16-11 32 0" fill="none" stroke="#dfb58b" stroke-width="5"/>
+      <use href="#face-details" stroke="none"/>
+    </g>
+  </symbol>
+  <symbol id="character-deer" viewBox="0 0 320 400">
+    <g style="--fur:#dfb78c" stroke="#947758" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <use href="#body-shape"/>
+      <path d="M128 88c-12-16-19-33-13-53m3 24-14-10m12-4 10-12m66 55c12-16 19-33 13-53m-3 24 14-10m-12-4-10-12" fill="none" stroke="#947758" stroke-width="5"/>
+      <path d="M117 110c-27-1-44-19-40-37 21-1 42 12 47 26m72 0c5-14 26-27 47-26 4 18-13 36-40 37" fill="#dfb78c"/>
+      <path d="M111 100 87 82q18 0 28 13m94 5 24-18q-18 0-28 13" fill="#eac8b2" stroke="none"/>
+      <path d="M108 103c10-17 30-24 52-24s42 7 52 24c11 18 10 44-4 62-12 16-28 24-48 24s-36-8-48-24c-14-18-15-44-4-62Z" fill="#dfb78c"/>
+      <path d="M160 86c-15 16-20 41-16 53h32c4-12-1-37-16-53Z" fill="#f7e1be" stroke="none"/>
+      <g fill="#fff3d9" stroke="none"><ellipse cx="120" cy="111" rx="4" ry="6" transform="rotate(-25 120 111)"/><ellipse cx="201" cy="111" rx="4" ry="6" transform="rotate(25 201 111)"/><circle cx="112" cy="122" r="3"/><circle cx="208" cy="122" r="3"/></g>
+      <use href="#face-details" stroke="none"/>
+    </g>
+  </symbol>
+
+  <!-- TOPS: shoulder 120/200, neck 140..180 at y188, hem y265 -->
+  <symbol id="top-tshirt" viewBox="0 0 320 400"><g fill="var(--cloth,#e8bd69)" stroke="#947b4f" stroke-width="2.2" stroke-linejoin="round">
+    <path d="m139 188-21 5-26 26 20 19 13-13-4 42q39 7 78 0l-4-42 13 13 20-19-26-26-21-5q-21 15-42 0Z"/>
+    <path d="M140 189q20 24 40 0m-74 34 12 10m84 0 12-10M125 260q35 5 70 0" fill="none" stroke-width="1.5"/>
+    <path d="M147 222q13-15 26 0v15h-26Z" fill="#fff6dc" stroke="none"/><path d="M151 228q9-12 18 0" fill="none" stroke="#d98565" stroke-width="3"/><path d="M155 230q5-7 10 0" fill="none" stroke="#75a59a" stroke-width="2.5"/>
+  </g></symbol>
+  <symbol id="top-puff" viewBox="0 0 320 400"><g stroke="#a37968" stroke-width="2.2" stroke-linejoin="round">
+    <path d="M139 188c-10-2-19 1-25 4-16-1-29 11-28 26 0 10 9 17 23 18l16-15-4 44q39 10 78 0l-4-44 16 15c14-1 23-8 23-18 1-15-12-27-28-26-6-3-15-6-25-4q-21 14-42 0Z" fill="var(--cloth,#e9b6a1)"/>
+    <path d="m92 227 16 3m104 0 16-3M119 196q-10 10-9 22m91-22q10 10 9 22M140 190q20 25 40 0M125 254q35 7 70 0" fill="none" stroke-width="1.5"/>
+    <path d="m155 208-10-5-1 12 11-3 5 9 5-9 11 3-1-12-10 5Z" fill="#fff5df" stroke-width="1.3"/>
+    <path d="M131 263v10m12-8v10m13-9v10m13-10v10m13-11v10m12-12v10" stroke="#f9e1d3" stroke-width="3"/>
+  </g></symbol>
+  <symbol id="top-shirt" viewBox="0 0 320 400"><g stroke="#86978a" stroke-width="2.2" stroke-linejoin="round">
+    <path d="m139 186-23 10-24 44 21 12 14-25-6 47h78l-6-47 14 25 21-12-24-44-23-10Z" fill="var(--cloth,#fffdf7)"/>
+    <path d="m140 187 20 13-13 17-17-26m50-4-20 13 13 17 17-26" fill="#e6eee4"/>
+    <path d="M160 204v68m-64-37 20 11m88 0 20-11m-50-15h16v13q-8 8-16 0Z" fill="none" stroke-width="1.5"/>
+    <g fill="#d3ac68" stroke="none"><circle cx="160" cy="224" r="2"/><circle cx="160" cy="241" r="2"/><circle cx="160" cy="258" r="2"/></g>
+  </g></symbol>
+  <symbol id="top-sailor" viewBox="0 0 320 400"><g stroke="#607f90" stroke-width="2.2" stroke-linejoin="round">
+    <path d="m138 188-23 7-27 48 21 12 18-27-6 39h78l-6-39 18 27 21-12-27-48-23-7Z" fill="var(--cloth,#fff9e9)"/>
+    <path d="m119 196 19-8 22 22 22-22 19 8-26 31h-30Z" fill="#799eaf"/><path d="m129 198 22 23h18l22-23" fill="none" stroke="#fff7df" stroke-width="2"/>
+    <path d="M125 238h70m-71 12h72m-73 12h74m-101-21 18 10m92 0 18-10" fill="none" stroke="#799eaf" stroke-width="5"/>
+    <path d="m156 216-6 20 10-4 10 4-6-20" fill="#d98565" stroke="#a97561" stroke-width="1.5"/>
+  </g></symbol>
+  <symbol id="top-knit" viewBox="0 0 320 400"><g stroke="#72836a" stroke-width="2.2" stroke-linejoin="round">
+    <path d="M138 185h44l3 8 22 5 24 57-23 9-15-31 7 39h-80l7-39-15 31-23-9 24-57 22-5Z" fill="var(--cloth,#a6b796)"/>
+    <path d="M139 186v14h42v-14m-62 75h82m-110-14 23 9m92 0 23-9" fill="none" stroke-width="6" stroke="#8b9e7e"/>
+    <path d="m142 212-6 9 7 10-7 10 7 10m17-39-6 9 7 10-7 10 7 10m17-39-6 9 7 10-7 10 7 10" fill="none" stroke="#e6ecd8" stroke-width="3"/>
+    <path d="M125 264v7m10-7v7m10-7v7m10-7v7m10-7v7m10-7v7m10-7v7m10-7v7" stroke="#c9d4bc" stroke-width="1.5"/>
+  </g></symbol>
+  <symbol id="top-hoodie" viewBox="0 0 320 400"><g stroke="#687f9c" stroke-width="2.2" stroke-linejoin="round">
+    <path d="M138 185q-11-16 22-17 33 1 22 17l24 13 30 57-25 11-16-28 7 39h-84l7-39-16 28-25-11 30-57Z" fill="var(--cloth,#9bb3ce)"/>
+    <path d="M137 182q23 30 46 0-23-15-46 0Z" fill="#dce5ee"/><path d="M148 198v26m24-26v26" fill="none" stroke="#fff7e5" stroke-width="3"/>
+    <path d="m140 238-9 17q29 8 58 0l-9-17Z" fill="#b7c9dc"/><path d="m140 238 4 12m36-12-4 12m-55 19h78" fill="none" stroke-width="1.5"/>
+    <circle cx="174" cy="222" r="3" fill="#e8bd69" stroke="none"/>
+  </g></symbol>
+  <symbol id="top-jacket" viewBox="0 0 320 400"><g stroke="#a07352" stroke-width="2.2" stroke-linejoin="round">
+    <path d="m138 188-24 9-24 52 21 12 17-27-5 25 30 5 7-59 7 59 30-5-5-25 17 27 21-12-24-52-24-9Z" fill="var(--cloth,#dba478)"/>
+    <path d="m138 188 22 17-14 22-11-17-10 4m57-26-22 17 14 22 11-17 10 4" fill="#f5d2a4"/>
+    <path d="m132 231 16 3-2 14-16-3Zm40 3 16-3 2 14-16 3Z" fill="#c69165" stroke-width="1.5"/>
+    <path d="m94 245 21 11m90 0 21-11" fill="none"/><circle cx="167" cy="241" r="2" fill="#fff6df" stroke="none"/>
+  </g></symbol>
+  <symbol id="top-vest" viewBox="0 0 320 400"><g stroke="#877394" stroke-width="2.2" stroke-linejoin="round">
+    <path d="m137 188 23 24 23-24 18 9q-13 20-5 35l4 37h-80l4-37q8-15-5-35Z" fill="var(--cloth,#b6a4c7)"/>
+    <path d="m138 191 22 30 22-30m-60 70h76m-76-61q11 17 4 31m72-31q-11 17-4 31" fill="none" stroke="#e4dbea" stroke-width="4"/>
+    <path d="m145 232 9 10-9 10-9-10Zm30 0 9 10-9 10-9-10Z" fill="#e3d9b7" stroke-width="1.3"/><path d="m152 232 9 10-9 10m30-20 9 10-9 10" fill="none" stroke="#f3ebdd" stroke-width="1.5"/>
+  </g></symbol>
+
+  <!-- BOTTOMS -->
+  <symbol id="bottom-pleated" viewBox="0 0 320 400"><g stroke="#748376" stroke-width="2.2" stroke-linejoin="round">
+    <path d="M122 254h76l21 70q-59 15-118 0Z" fill="var(--cloth,#91a893)"/>
+    <path d="M124 254h72v11h-72Z" fill="#698771"/><path d="m129 267-12 57m26-57-5 60m22-60v62m17-62 5 60m9-60 12 57" fill="none" stroke="#d1ddc8" stroke-width="3"/>
+    <path d="M108 320q52 13 104 0" fill="none" stroke-width="1.2"/>
+  </g></symbol>
+  <symbol id="bottom-tutu" viewBox="0 0 320 400"><g stroke="#9c87b0" stroke-width="2" stroke-linejoin="round">
+    <path d="M124 254h72c1 15 26 34 34 62q-18 11-35 4-18 11-35 3-17 8-35-3-17 7-35-4c8-28 33-47 34-62Z" fill="var(--cloth,#c4b4d9)"/>
+    <path d="M124 262c-6 18-23 32-26 42q16 10 30 3 16 9 32 3 16 6 32-3 14 7 30-3c-3-10-20-24-26-42Z" fill="#e7dff1" opacity=".78"/>
+    <path d="m135 267-11 33m24-33-3 35m27-35 3 35m11-35 11 33" fill="none" stroke="#faf4fa" stroke-width="2.2"/>
+    <path d="M123 255h74v9h-74Z" fill="#ad94c6"/><path d="m158 260-13-8-3 14 16-2 4 12 4-12 14 2-3-14-13 8Z" fill="#fff0d0" stroke-width="1.3"/>
+  </g></symbol>
+  <symbol id="bottom-denim-shorts" viewBox="0 0 320 400"><g stroke="#597991" stroke-width="2.2" stroke-linejoin="round">
+    <path d="M122 253h76l7 51-39 4-6-22-6 22-39-4Z" fill="var(--cloth,#86a8c4)"/>
+    <path d="M124 264h72m-67 1q0 19-10 18m72-18q0 19 10 18m-41-16v19m-41 11 33 3m16 0 33-3" fill="none" stroke="#e4d6b6" stroke-width="1.6"/>
+    <path d="m115 298 39 4-1 9-39-4Zm52 4 38-4 1 9-38 4Z" fill="#bfd1dd"/><circle cx="160" cy="260" r="2.5" fill="#e8bd69" stroke="none"/>
+  </g></symbol>
+  <symbol id="bottom-wide" viewBox="0 0 320 400"><g stroke="#987c5b" stroke-width="2.2" stroke-linejoin="round">
+    <path d="M123 254h74l18 95-50 2-5-66-5 66-50-2Z" fill="var(--cloth,#d8bc88)"/>
+    <path d="M125 263h70m-49 5-8 74m36-74 8 74m-72 0 44 2m12 0 44-2m-82-73-9 18m73-18 9 18" fill="none" stroke="#f8e5b9" stroke-width="1.8"/>
+    <path d="m156 262-14 12 15-5m7-7 14 12-15-5" fill="none" stroke-width="2"/>
+  </g></symbol>
+  <symbol id="bottom-overalls" viewBox="0 0 320 400"><g stroke="#587d86" stroke-width="2.2" stroke-linejoin="round">
+    <path d="M126 251h68l12 92-39 5-7-61-7 61-39-5Z" fill="var(--cloth,#78a3aa)"/>
+    <path d="m116 333 37 4-1 12-37-3Zm51 4 37-4 1 13-37 3Z" fill="#c4d8d6"/><path d="m126 270 15 3-3 15-13-3Zm53 3 15-3 1 15-13 3Z" fill="#90b5b8" stroke-width="1.5"/>
+    <path d="M160 270v17" fill="none" stroke="#d2e1d8"/>
+  </g></symbol>
+  <symbol id="bottom-overalls-front" viewBox="0 0 320 400"><g stroke="#587d86" stroke-width="2.2" stroke-linejoin="round">
+    <path d="m126 192 11-3 7 35h32l7-35 11 3-7 34 6 45h-66l6-45Z" fill="var(--cloth,#78a3aa)"/>
+    <path d="M145 239h30v14q-15 12-30 0Z" fill="#a1c2c2" stroke-width="1.5"/><g fill="#f2d48f" stroke="none"><circle cx="138" cy="226" r="3"/><circle cx="182" cy="226" r="3"/></g>
+  </g></symbol>
+  <symbol id="bottom-bloomers" viewBox="0 0 320 400"><g stroke="#ae816a" stroke-width="2.2" stroke-linejoin="round">
+    <path d="M123 254h74c5 10 20 25 16 41-3 11-16 16-33 14-15 1-17-14-20-25-3 11-5 26-20 25-17 2-30-3-33-14-4-16 11-31 16-41Z" fill="var(--cloth,#e9b99b)"/>
+    <path d="M124 257h72v9h-72" fill="none"/><path d="m128 270-7 15m20-15-3 19m41-19 3 19m10-19 7 15" stroke="#ffe0c8" stroke-width="3" fill="none"/>
+    <path d="M115 304q11 7 26 3v9h-26Zm64 3q15 4 26-3v12h-26Z" fill="#d99e82"/><path d="m123 310 4 3 5-3m56 0 4 3 5-3" fill="none" stroke="#fff2dc" stroke-width="1.5"/>
+  </g></symbol>
+  <symbol id="bottom-straight" viewBox="0 0 320 400"><g stroke="#697282" stroke-width="2.2" stroke-linejoin="round">
+    <path d="M124 254h72l2 93h-32l-6-64-6 64h-32Z" fill="var(--cloth,#919eae)"/>
+    <path d="M126 264h68m-51 8-5 68m39-68 5 68m-53-72-5 14m67-14 5 14M125 341h27m16 0h27" fill="none" stroke="#ccd3dc" stroke-width="1.5"/>
+    <path d="M153 257h14v8h-14Z" fill="#d8bc80" stroke-width="1.3"/>
+  </g></symbol>
+  <symbol id="bottom-sport" viewBox="0 0 320 400"><g stroke="#658980" stroke-width="2.2" stroke-linejoin="round">
+    <path d="M124 254h72l14 43q-15 17-42 10l-8-25-8 25q-27 7-42-10Z" fill="var(--cloth,#81b5a8)"/>
+    <path d="m125 264-9 31q13 12 34 8m45-39 9 31q-13 12-34 8" fill="none" stroke="#fff6dc" stroke-width="4"/><path d="M125 254h70v10h-70Z" fill="#59897e"/><path d="m160 262-8 15m8-15 8 15" stroke="#f7ecd2" stroke-width="2"/>
+  </g></symbol>
+
+  <!-- DRESSES: one-piece styles replace both top and bottom -->
+  <symbol id="dress-aline" viewBox="0 0 320 400"><g stroke="#a17b50" stroke-width="2.2" stroke-linejoin="round">
+    <path d="m139 188-18 5-19 25 17 13 12-13-23 108q52 14 104 0l-23-108 12 13 17-13-19-25-18-5q-21 15-42 0Z" fill="var(--cloth,#e5bd73)"/>
+    <path d="M140 189q20 27 40 0m-55 62q35 7 70 0m-82 66q47 11 94 0" fill="none" stroke="#fff0c6" stroke-width="3"/>
+    <path d="M127 274h20v17q-10 10-20 0Zm46 0h20v17q-10 10-20 0Z" fill="#f1d599" stroke-width="1.5"/>
+    <g fill="#997a50" stroke="none"><circle cx="160" cy="217" r="2"/><circle cx="160" cy="231" r="2"/></g>
+  </g></symbol>
+  <symbol id="dress-starlight" viewBox="0 0 320 400"><g stroke="#9681ab" stroke-width="2.2" stroke-linejoin="round">
+    <path d="M135 189h10l3 21q12-8 24 0l3-21h10l7 63q27 32 44 78-76 22-152 0 17-46 44-78Z" fill="var(--cloth,#b5a2ce)"/>
+    <path d="M128 252q32 11 64 0 16 26 30 53-31 14-62 4-31 10-62-4 14-27 30-53Z" fill="#e5daef" opacity=".8"/>
+    <path d="M128 249q32 10 64 0l2 9q-34 10-68 0Z" fill="#e8bd69" stroke="#b89a6d" stroke-width="1.5"/>
+    <path d="m143 268-13 48m30-45v55m17-58 13 48m-94 12q64 17 128 0" fill="none" stroke="#f9f2fd" stroke-width="2"/>
+    <use href="#motif-star" x="142" y="230"/><use href="#motif-star" x="179" y="285"/><use href="#motif-star" x="119" y="301"/><use href="#motif-star" x="204" y="320"/>
+    <g fill="#fff7e2" stroke="none"><circle cx="164" cy="293" r="2"/><circle cx="190" cy="305" r="2"/><circle cx="138" cy="321" r="2"/><circle cx="170" cy="228" r="2"/></g>
+  </g></symbol>
+  <symbol id="dress-garden" viewBox="0 0 320 400"><g stroke="#6c896c" stroke-width="2.2" stroke-linejoin="round">
+    <path d="M139 188c-13-1-34 6-38 24l18 12 13-14-4 40-25 55 13 3-8 23q52 16 104 0l-8-23 13-3-25-55-4-40 13 14 18-12c-4-18-25-25-38-24q-21 17-42 0Z" fill="var(--cloth,#a9bf91)"/>
+    <path d="M141 190q19 25 38 0l-1 33h-36Z" fill="#fff6de"/><path d="M128 251q32 12 64 0m-85 50q53 17 106 0m-99 23q46 15 92 0" fill="none" stroke="#edf1d6" stroke-width="3"/>
+    <use href="#motif-flower" x="139" y="280"/><use href="#motif-flower" x="181" y="276"/><use href="#motif-flower" x="161" y="311"/>
+    <path d="m155 252-12-6-2 12 14-2 5 8 5-8 14 2-2-12-12 6Z" fill="#e8bd69" stroke="#a28b58" stroke-width="1.4"/>
+  </g></symbol>
+  <symbol id="dress-academy" viewBox="0 0 320 400"><g stroke="#61788a" stroke-width="2.2" stroke-linejoin="round">
+    <path d="m139 188-21 5-24 35 20 14 15-19-4 34-15 63 22 4 7-5 10 8 11-7 11 7 10-8 7 5 22-4-15-63-4-34 15 19 20-14-24-35-21-5Z" fill="var(--cloth,#819caf)"/>
+    <path d="m139 188 21 18-15 17-16-30m52-5-21 18 15 17 16-30" fill="#fff8e8"/><path d="m160 207-6 8 6 23 6-23Z" fill="#c79375" stroke="#9c715b" stroke-width="1.5"/>
+    <path d="M127 251h66v9h-66Z" fill="#536f83"/><path d="m137 263-7 54m18-54-3 58m15-58v54m12-54 3 58m8-58 7 54" fill="none" stroke="#bfcdd1" stroke-width="2"/>
+    <path d="M176 229h12v12l-6 4-6-4Z" fill="#e8bd69" stroke-width="1.2"/>
+  </g></symbol>
+  <symbol id="dress-festival" viewBox="0 0 320 400"><g stroke="#a7705f" stroke-width="2.2" stroke-linejoin="round">
+    <path d="M139 185h42l4 9c19-1 37 13 35 28l-19 8-12-15 3 36c9 14 25 31 35 69q-15 4-25 14-42 14-84 0-10-10-25-14c10-38 26-55 35-69l3-36-12 15-19-8c-2-15 16-29 35-28Z" fill="var(--cloth,#d98e77)"/>
+    <path d="M141 186v13h38v-13M128 250q32 8 64 0l-14 25-18-15-18 15Z" fill="#f4dca5"/><path d="M160 201v44m-57 71q57 28 114 0" fill="none" stroke="#f8dbb4" stroke-width="3"/>
+    <path d="m137 280-11 36m57-36 11 36" fill="none" stroke="#bf7865" stroke-width="2"/>
+    <use href="#motif-star" x="160" y="291"/><use href="#motif-star" x="113" y="308"/><use href="#motif-star" x="207" y="308"/>
+    <g fill="#f8dbb4" stroke="none"><circle cx="165" cy="211" r="2"/><circle cx="165" cy="224" r="2"/><circle cx="165" cy="237" r="2"/></g>
+  </g></symbol>
+  <symbol id="dress-pinafore" viewBox="0 0 320 400"><g stroke="#8a7c96" stroke-width="2.2" stroke-linejoin="round">
+    <path d="m138 188-21 7-20 28 21 12 15-20h54l15 20 21-12-20-28-21-7q-22 18-44 0Z" fill="#fff8e8"/>
+    <path d="m128 191 12-3 3 29h34l3-29 12 3-5 38 4 30 17 67q-48 17-96 0l17-67 4-30Z" fill="var(--cloth,#b1a1bf)"/>
+    <path d="M136 259q24 5 48 0l12 55q-36 12-72 0Z" fill="#e8dce9"/><path d="M146 270h28v18q-14 9-28 0Z" fill="#cbbbd3" stroke-width="1.5"/>
+    <path d="m122 321 9-4m58 0 9 4" stroke="#e8dce9"/>
+    <g fill="#edca81" stroke="none"><circle cx="139" cy="221" r="3"/><circle cx="181" cy="221" r="3"/></g>
+    <use href="#motif-flower" x="160" y="238"/>
+  </g></symbol>
+
+  <!-- SHOES: pair centers 136 / 184, soles y370 -->
+  <symbol id="shoe-sneakers" viewBox="0 0 320 400"><g stroke="#6a8b81" stroke-width="2.2" stroke-linejoin="round">
+    <path d="M124 348h24l7 15q1 10-13 10h-27q-9-2-5-11l12-6Zm48 0h24l2 8 12 6q4 9-5 11h-27q-14 0-13-10Z" fill="var(--cloth,#91b4a4)"/>
+    <path d="M111 366h43m12 0h43m-86-9 19 1m-23 4 25 1m33-6 19 1m-20 5 25-1" fill="none" stroke="#fff9e8" stroke-width="3"/>
+    <path d="m129 350 2 7m10-7-2 7m39-7 2 7m10-7-2 7" stroke="#fff9e8" stroke-width="1.5"/>
+  </g></symbol>
+  <symbol id="shoe-boots" viewBox="0 0 320 400"><g stroke="#977250" stroke-width="2.2" stroke-linejoin="round">
+    <path d="M123 329h28l-1 32 4 5v7h-46v-10l15-9Zm46 0h28v25l15 9v10h-46v-7l4-5Z" fill="var(--cloth,#c79c73)"/>
+    <path d="M124 333h25m22 0h25m-87 35h44m14 0h44" stroke="#f2d3a3" stroke-width="3" fill="none"/><path d="M140 337v21m40-21v21" fill="none" stroke-width="1.5"/>
+    <path d="M126 344h17v7h-17Zm51 0h17v7h-17Z" fill="#ad815b"/><path d="M136 344h7v7h-7Zm41 0h7v7h-7Z" fill="#e9c378" stroke-width="1.2"/>
+  </g></symbol>
+  <symbol id="shoe-sandals" viewBox="0 0 320 400"><g stroke="#a57f5c" stroke-width="2.2" stroke-linejoin="round">
+    <path d="M115 358q15-9 33-3l6 12q-2 8-18 8h-23q-10-4 2-17Zm90 0q-15-9-33-3l-6 12q2 8 18 8h23q10-4-2-17Z" fill="#f4dfbd"/>
+    <path d="m125 347 2 20m17-20-4 21m36-21 4 21m15-21-2 20m-77-8h34m20 0h34" fill="none" stroke="var(--cloth,#d6a56c)" stroke-width="7"/><path d="M124 347h24m24 0h24" stroke="#95764f" stroke-width="2"/>
+    <circle cx="145" cy="350" r="3" fill="#fff1c2"/><circle cx="175" cy="350" r="3" fill="#fff1c2"/>
+  </g></symbol>
+  <symbol id="shoe-ballet" viewBox="0 0 320 400"><g stroke="#9f7c8e" stroke-width="2.2" stroke-linejoin="round">
+    <path d="M123 354q-15 0-17 12-1 8 17 8h24q9-2 7-11l-6-9q-11 14-25 0Zm74 0q15 0 17 12 1 8-17 8h-24q-9-2-7-11l6-9q11 14 25 0Z" fill="var(--cloth,#d7b1be)"/>
+    <path d="m125 337 20 14m0-14-20 14m50-14 20 14m0-14-20 14" fill="none" stroke="#c69bab" stroke-width="2.4"/>
+    <path d="m124 362-8-4v8l8-3 8 3v-8Zm72 0-8-4v8l8-3 8 3v-8Z" fill="#fff0dc" stroke-width="1.2"/>
+  </g></symbol>
+  <symbol id="shoe-rainboots" viewBox="0 0 320 400"><g stroke="#647e81" stroke-width="2.2" stroke-linejoin="round">
+    <path d="M120 314h32l-3 43 5 9v8h-47v-12q1-7 15-8Zm48 0h32l-2 40q14 1 15 8v12h-47v-8l5-9Z" fill="var(--cloth,#7fabae)"/>
+    <path d="M120 315h32v8h-32Zm48 0h32v8h-32Z" fill="#eed18d"/><path d="M108 369h45m14 0h45" stroke="#e6e5c7" stroke-width="4"/>
+    <path d="M133 330v19m45-19v19" stroke="#c0d9d4" stroke-width="3" fill="none"/>
+    <use href="#motif-flower" x="141" y="338" transform="translate(56 135) scale(.6)"/><path d="m185 337 3 5-3 5-3-5Z" fill="#e8bd69" stroke="none"/>
+  </g></symbol>
+  <symbol id="shoe-canvas" viewBox="0 0 320 400"><g stroke="#777791" stroke-width="2.2" stroke-linejoin="round">
+    <path d="M123 340h25l4 22 3 11h-47v-9l14-9Zm49 0h25l1 15 14 9v9h-47l3-11Z" fill="var(--cloth,#a4a3c3)"/>
+    <path d="M120 357q13 0 13 14h-24v-6Zm80 0q-13 0-13 14h24v-6Z" fill="#fff8e8"/><path d="M109 369h44m14 0h44m-80-23 10 3-10 4 11 4m47-11-10 3 10 4-11 4" fill="none" stroke="#fff8e8" stroke-width="2"/>
+    <circle cx="145" cy="351" r="3" fill="#e8bd69" stroke-width="1"/><circle cx="175" cy="351" r="3" fill="#e8bd69" stroke-width="1"/>
+  </g></symbol>
+
+  <!-- HATS: intentionally sit across forehead, leaving animal ears visible -->
+  <symbol id="hat-none" viewBox="0 0 320 400"/>
+  <symbol id="hat-beret" viewBox="0 0 320 400"><g stroke="#896d89" stroke-width="2.2" stroke-linejoin="round">
+    <path d="M115 97c-15-3-18-19-4-30 17-15 67-18 88-6 17 10 25 27 12 33l-20 8Z" fill="var(--cloth,#b29ab9)"/>
+    <path d="M116 92q43 9 87-4l3 12q-48 13-87 3Z" fill="#8d769b"/><path d="m156 59 4-10 8 1-3 9" fill="#8d769b"/>
+    <path d="M115 77q18-12 36-12" stroke="#d8c6de" stroke-width="3" fill="none"/><path d="m191 91-4 6 6 2 4-6Z" fill="#e9c989" stroke="none"/>
+  </g></symbol>
+  <symbol id="hat-sun" viewBox="0 0 320 400"><g stroke="#b09359" stroke-width="2.2" stroke-linejoin="round">
+    <path d="M121 88c1-18 5-34 18-38h42c13 4 17 20 18 38l34 11c8 10-20 17-73 17s-81-7-73-17Z" fill="var(--cloth,#eed399)"/>
+    <path d="M124 77q36 8 72 0l3 13q-39 10-78 0Z" fill="#9aac8a"/><path d="M101 101q59 19 118 0m-82-43h46m-50 8h54" fill="none" stroke="#d7b875" stroke-width="1.5"/>
+    <path d="m195 84 21-6-1 16-18-5 11 22-12-3-6-20" fill="#9aac8a" stroke="#758d6f" stroke-width="1.5"/>
+    <use href="#motif-flower" x="194" y="86"/>
+  </g></symbol>
+  <symbol id="hat-beanie" viewBox="0 0 320 400"><g stroke="#a07b54" stroke-width="2.2" stroke-linejoin="round">
+    <path d="M115 95c0-30 15-50 45-50s45 20 45 50Z" fill="var(--cloth,#dcb16f)"/><path d="M115 88q45-9 90 0l1 20q-46-9-92 0Z" fill="#f0ce8d"/>
+    <path d="M134 57q-11 12-10 26m23-33q-6 15-6 33m19-35v33m13-31q6 15 6 33m7-26q11 12 10 26m-74 10v10m10-12v10m10-12v10m10-11v10m10-10v10m10-9v10m10-8v10m10-8v10" fill="none" stroke="#b58d58" stroke-width="1.6"/>
+    <path d="M149 39c-6-9 6-18 12-12 8-6 17 3 12 10 6 9-6 16-12 12-9 4-17-3-12-10Z" fill="#fff0cb"/><path d="M176 91h17v13h-17Z" fill="#fff3d7" stroke-width="1"/>
+  </g></symbol>
+  <symbol id="hat-cap" viewBox="0 0 320 400"><g stroke="#688980" stroke-width="2.2" stroke-linejoin="round">
+    <path d="M117 97c-3-29 13-47 41-47 28 0 46 19 46 45l-42 11Z" fill="var(--cloth,#85ada0)"/><path d="M159 52q-17 12-15 42m15-42q16 13 20 40" fill="none" stroke="#bfd6be" stroke-width="1.5"/>
+    <path d="M147 94c20-10 46-10 59-3l27 14c-12 13-42 12-65 3l-21-6Z" fill="#628e82"/><path d="M153 66h16v16h-16Z" fill="#f6e2ab" stroke-width="1.3"/><path d="m157 76 4-6 4 6" fill="none" stroke-width="1.5"/>
+    <ellipse cx="157" cy="49" rx="5" ry="3" fill="#628e82"/>
+  </g></symbol>
+  <symbol id="hat-wreath" viewBox="0 0 320 400"><g stroke="#6e8b64" stroke-width="2" stroke-linejoin="round">
+    <path d="M108 101q52-30 104 0" fill="none" stroke-width="5"/>
+    <path d="M119 95q-19-5-17-18 18 0 17 18m15-6q-17-8-10-20 14 4 10 20m48 0q17-8 10-20-14 4-10 20m18 7q19-5 17-18-18 0-17 18" fill="#9ab58a"/>
+    <use href="#motif-flower" x="118" y="93"/><use href="#motif-flower" x="141" y="84"/><use href="#motif-flower" x="164" y="83"/><use href="#motif-flower" x="188" y="89"/><use href="#motif-flower" x="208" y="100"/>
+    <path d="M109 101q-12 13-8 32l9-6 6 6q-6-16 3-28" fill="#edc891" stroke="#b49365" stroke-width="1.5"/>
+  </g></symbol>
+
+  <!-- NECK -->
+  <symbol id="neck-none" viewBox="0 0 320 400"/>
+  <symbol id="neck-scarf" viewBox="0 0 320 400"><g stroke="#a76f59" stroke-width="2.2" stroke-linejoin="round">
+    <path d="m174 199 21 7 3 51-24-4 3-35-14-11Z" fill="var(--cloth,#d98e6e)"/><path d="M128 185q32 15 64 0l5 21q-37 17-74 0Z" fill="var(--cloth,#e4a081)"/>
+    <path d="M131 197q26 12 52 2m-7 40 20 3m-21 5 22 3" fill="none" stroke="#f6d49e" stroke-width="3"/><path d="m175 253-1 8m7-7v8m6-7v8m6-7 1 8" stroke="#ba7d62" stroke-width="2"/>
+  </g></symbol>
+  <symbol id="neck-shawl" viewBox="0 0 320 400"><g stroke="#8b79a0" stroke-width="2.2" stroke-linejoin="round">
+    <path d="M134 185q26 15 52 0l34 42-21 10-13-7-26 20-26-20-13 7-21-10Z" fill="var(--cloth,#b9a7cb)"/>
+    <path d="m138 190 22 48 22-48m-69 34 21 2 26 18 26-18 21-2" fill="none" stroke="#e3d8eb" stroke-width="2"/>
+    <path d="m106 229-4 6m14-1-2 6m13-6-1 6m13-5-2 7m12-1-1 7m12 1v7m12-15 1 7m10-13 2 7m11-8 1 6m11-6 2 6m10-11 4 6" stroke="#8b79a0" stroke-width="1.5"/>
+    <circle cx="160" cy="200" r="4" fill="#e8bd69" stroke-width="1.2"/>
+  </g></symbol>
+  <symbol id="neck-bowtie" viewBox="0 0 320 400"><g stroke="#8b7454" stroke-width="2" stroke-linejoin="round">
+    <path d="M133 192q27 12 54 0" fill="none" stroke="#c9b785" stroke-width="5"/>
+    <path d="M155 198c-10-9-24-12-24-4v18c0 8 14 5 24-4m10-10c10-9 24-12 24-4v18c0 8-14 5-24-4" fill="var(--cloth,#dbb975)"/>
+    <path d="m138 201 15 2m29-2-15 2" fill="none" stroke="#f7e1ac" stroke-width="2"/><rect x="154" y="195" width="12" height="16" rx="4" fill="#efcf8f"/>
+  </g></symbol>
+  <symbol id="neck-silk" viewBox="0 0 320 400"><g stroke="#718f86" stroke-width="2" stroke-linejoin="round">
+    <path d="M130 185q30 16 60 0l-4 15-22 12-30-12Z" fill="var(--cloth,#a1c2ae)"/>
+    <path d="m174 198 26 9-15 24-13-25-18 28-10-17 27-17Z" fill="var(--cloth,#a1c2ae)"/><path d="m134 192 30 12 18-11m-33 25 5 7 15-21m13 5 4 13 8-13" fill="none" stroke="#fff0c9" stroke-width="2"/>
+    <circle cx="173" cy="201" r="6" fill="#e8bd69" stroke-width="1.5"/>
+  </g></symbol>
+  <symbol id="neck-snood" viewBox="0 0 320 400"><g stroke="#7b839d" stroke-width="2.2" stroke-linejoin="round">
+    <path d="M130 182q30 12 60 0c8 6 5 15 5 22 1 10-16 17-35 17s-36-7-35-17c0-7-3-16 5-22Z" fill="var(--cloth,#a8b3ca)"/>
+    <path d="M130 190q30 14 60 0m-62 10q32 16 64 0m-61 9q29 14 58 0" fill="none" stroke="#d9dfeb" stroke-width="2.5"/>
+    <path d="m142 193-3 10 4 8m19-14-3 10 4 8m18-21-3 10 4 8" fill="none" stroke="#8c97b1" stroke-width="1.5"/>
+  </g></symbol>
+
+  <!-- ACCESSORIES; backpack-back is an optional rear helper, not an extra choice -->
+  <symbol id="acc-none" viewBox="0 0 320 400"/>
+  <symbol id="acc-satchel" viewBox="0 0 320 400"><g stroke="#9f7652" stroke-width="2.2" stroke-linejoin="round">
+    <path d="M126 194q25 40 79 72" fill="none" stroke="#bc9167" stroke-width="6"/><path d="M126 194q25 40 79 72" fill="none" stroke="#f5d6a3" stroke-width="1.5"/>
+    <path d="M189 259q20-8 40 1l4 36q-21 12-44-1Z" fill="var(--cloth,#d7aa77)"/>
+    <path d="M189 259q20-8 40 1l-2 17q-18 11-36-2Z" fill="#e9c592"/><rect x="207" y="273" width="8" height="10" rx="2" fill="#fff0ba" stroke-width="1.3"/>
+    <path d="M194 285v7q17 7 34 0" fill="none" stroke="#f6d9aa" stroke-width="1.4"/>
+  </g></symbol>
+  <symbol id="acc-backpack-back" viewBox="0 0 320 400"><g stroke="#6b8380" stroke-width="2.2" stroke-linejoin="round">
+    <path d="M183 192q11-17 21 0" fill="none" stroke-width="5"/><path d="M183 194c35-7 42 7 43 27l3 53q-19 14-49 3l-4-57Z" fill="var(--cloth,#8eafa3)"/>
+    <path d="M209 237h20v30h-20Z" fill="#b5cbb4"/><path d="M190 202q19-4 27 10" fill="none" stroke="#d6dfc1"/>
+  </g></symbol>
+  <symbol id="acc-backpack" viewBox="0 0 320 400"><g stroke="#6b8380" stroke-width="2.2" stroke-linejoin="round">
+    <path d="M125 196q-13 22-5 49m75-49q13 22 5 49" fill="none" stroke="var(--cloth,#8eafa3)" stroke-width="9"/>
+    <path d="M125 196q-13 22-5 49m75-49q13 22 5 49" fill="none" stroke="#d6dfc1" stroke-width="2"/>
+    <path d="M114 228h10v10h-10Zm82 0h10v10h-10Z" fill="#e3c380" stroke-width="1.5"/>
+  </g></symbol>
+  <symbol id="acc-handbag" viewBox="0 0 320 400"><g stroke="#9b7f9d" stroke-width="2.2" stroke-linejoin="round">
+    <path d="M220 286v-16c0-17 23-17 23 0v16" fill="none" stroke-width="4"/>
+    <path d="M212 279h38l7 39q-27 13-53 0Z" fill="var(--cloth,#c5adc8)"/><path d="M216 285h30l5 27q-20 9-41 0Z" fill="#e2cee0" stroke-width="1.3"/>
+    <path d="m229 292-10-4v12l10-3 10 3v-12Z" fill="#e9c98e" stroke="#a89165" stroke-width="1.3"/>
+  </g></symbol>
+  <symbol id="acc-hairclip" viewBox="0 0 320 400"><g stroke="#a47764" stroke-width="2" stroke-linejoin="round">
+    <path d="m184 109 29 7" fill="none" stroke="#d7aa79" stroke-width="6"/>
+    <path d="M197 112c-18-18-28-5-16 5 7 6 16-5 16-5 4 13 18 17 22 7 5-12-14-16-22-7Z" fill="var(--cloth,#df9d82)"/><path d="m186 110 10 3 14 4" fill="none" stroke="#f5d1b5" stroke-width="1.5"/>
+    <circle cx="198" cy="113" r="4" fill="#eed392"/>
+  </g></symbol>
+  <symbol id="acc-badge" viewBox="0 0 320 400"><g stroke="#9a865d" stroke-width="1.6" stroke-linejoin="round">
+    <path d="m177 222-4 23 8-3 6 6 3-25" fill="#a6b5cf"/><path d="m173 216 5-5 6 2 6-1 4 6-1 6-5 4-6-1-6 1-5-6Z" fill="var(--cloth,#eed08b)"/>
+    <path d="m177 219 5 4 7-8" fill="none" stroke="#7d9379" stroke-width="2"/>
+  </g></symbol>
+  <symbol id="acc-glasses" viewBox="0 0 320 400"><g stroke="var(--cloth,#92775a)" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <rect x="115" y="119" width="40" height="29" rx="12" fill="#fffdf7" fill-opacity=".12"/><rect x="165" y="119" width="40" height="29" rx="12" fill="#fffdf7" fill-opacity=".12"/>
+    <path d="M155 129q5-5 10 0m-59-5 9 3m90 0 9-3"/><path d="m123 126 6-3m44 3 6-3" stroke="#fffdf7" stroke-width="2"/>
+  </g></symbol>
+  <symbol id="acc-bracelet" viewBox="0 0 320 400"><g stroke="#8b9b77" stroke-width="1.5">
+    <path d="m85 251 17 7" fill="none" stroke="#bca47b" stroke-width="3"/>
+    <g fill="var(--cloth,#cfb3d1)"><circle cx="86" cy="251" r="3"/><circle cx="91" cy="253" r="3"/><circle cx="96" cy="255" r="3"/><circle cx="101" cy="257" r="3"/></g>
+    <use href="#motif-flower" transform="translate(91 250) scale(.65)"/>
+  </g></symbol>
+
+  <symbol id="scene-studio" viewBox="0 0 320 400">
+    <path d="M29 367V156C29 63 291 63 291 156v211Z" fill="#e6ecdf"/>
+    <path d="M43 360V157C43 80 277 80 277 157v203" fill="none" stroke="#fffaf0" stroke-width="3"/>
+    <path d="M54 140q106-75 212 0" fill="none" stroke="#c0cbb5" stroke-width="1.5" stroke-dasharray="2 8"/>
+    <ellipse cx="160" cy="376" rx="95" ry="11" fill="#d2d9c8"/><ellipse cx="160" cy="375" rx="65" ry="7" fill="#b9c6b0" opacity=".5"/>
+    <use href="#motif-star" x="66" y="169"/><use href="#motif-star" x="259" y="217"/>
+    <path d="M52 345v-38m0 22q-20-7-15-20 17 0 15 20m0-7q19-6 15-19-16 1-15 19" fill="#a6b795" stroke="#7f9778" stroke-width="1.5"/>
+    <path d="M37 341h30l-5 24H42Z" fill="#dcb596" stroke="#b49172" stroke-width="1.5"/>
+  </symbol>
+</svg>

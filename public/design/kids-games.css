@@ -1,0 +1,52 @@
+/* Shared visual contract for the two proposed games; no game logic. */
+:root { font-family: -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif; color: #293d36; background: #f7f7f2; }
+* { box-sizing: border-box; }
+body { margin: 0; }
+a { color: inherit; }
+.design-header, main { max-width: 1100px; margin: auto; padding: 24px; }
+.design-header { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; border-bottom: 1px solid #dce3d3; }
+h1 { font-size: clamp(26px,4vw,36px); margin: 12px 0; }
+h2 { font-size: 22px; }
+p { line-height: 1.75; }
+.design-label { color: #5a6d54; font-size: 13px; letter-spacing: 1px; }
+.design-nav { display: flex; gap: 12px; flex-wrap: wrap; }
+.design-nav a { padding: 12px 16px; border: 1px solid #dce3d3; border-radius: 12px; text-decoration: none; background: #fffdf7; }
+.game-study { margin: 36px 0 56px; scroll-margin-top: 20px; }
+.study-layout { display: grid; grid-template-columns: minmax(0,1fr) 260px; gap: 20px; }
+.study-board, .study-help { padding: 24px; border: 1px solid #dce3d3; border-radius: 22px; background: #fffdf7; min-width: 0; }
+.study-help { align-self: start; }
+.study-help h3 { margin-top: 0; }
+.study-status { display: flex; justify-content: space-between; gap: 12px; font-size: 14px; color: #52654c; margin-bottom: 18px; }
+.train-line { display: grid; grid-template-columns: repeat(6,minmax(0,1fr)); gap: 4px; padding: 28px 4px 14px; border-radius: 16px; background: #e7eddb; }
+.wagon { position: relative; min-width: 0; }
+.wagon > svg { width: 100%; aspect-ratio: 160 / 130; display: block; }
+.wagon .cargo { position: absolute; top: 12%; left: 24%; width: 52%; aspect-ratio: 1; }
+.wagon .missing { position: absolute; top: 13%; left: 30%; font-size: clamp(20px,3vw,36px); color: #886139; }
+.choices { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 20px; }
+.choice { width: 100px; padding: 10px; border: 2px solid #dce3d3; border-radius: 16px; background: #fffaf0; text-align: center; }
+.choice svg { display: block; width: 64px; height: 64px; margin: auto; }
+.choice[data-state="selected"] { border-color: #345447; box-shadow: 0 0 0 3px #e1ebd9; }
+.feedback { padding: 14px; border-radius: 12px; background: #eef2e7; color: #435b3f; font-size: 15px; line-height: 1.6; }
+.feedback[data-state="retry"] { background: #fff1d6; color: #79532e; }
+.feedback[data-state="success"] { border: 1px solid #89a677; }
+.study-action { display: block; padding: 14px 16px; margin-top: 12px; border-radius: 12px; border: 1px solid #d4deca; text-align: center; background: #f7f7ed; min-height: 48px; }
+.study-action.primary { color: #fffdf7; background: #345447; border-color: #345447; }
+.picnic-table { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; background: repeating-linear-gradient(90deg,#f9ecd8 0 20px,#f3e0ca 20px 40px); padding: 16px; border-radius: 16px; }
+.friend { text-align: center; min-width: 0; }
+.friend > svg { width: 76px; height: 76px; }
+.request { background: #fffdf7; padding: 10px; border-radius: 12px; font-size: 14px; }
+.dots { display: block; letter-spacing: 5px; color: #48613e; font-size: 20px; }
+.plate { position: relative; margin-top: 10px; }
+.plate > svg { width: 100%; aspect-ratio: 4 / 3; display: block; }
+.plate-fruit { position: absolute; inset: 26% 17% 30%; display: flex; justify-content: center; }
+.plate-fruit svg { width: 42%; height: 100%; }
+.asset-strip { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 16px; }
+.asset-strip figure { margin: 0; text-align: center; padding: 12px; background: #fffaf0; border-radius: 12px; }
+.asset-strip svg { display: block; width: 80px; height: 72px; }
+.asset-strip figcaption { font-size: 12px; margin-top: 8px; }
+.cover-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.cover-row img { width: 100%; border-radius: 20px; }
+:focus-visible { outline: 3px solid #c76a3e; outline-offset: 4px; }
+@media (max-width: 760px) { .study-layout { grid-template-columns: 1fr; } .design-header, main { padding: 18px; } .study-board, .study-help { padding: 16px; } }
+@media (max-width: 420px) { .study-board { padding: 12px; } .train-line { gap: 0; } .choice { width: 76px; font-size: 14px; } .choice svg { width: 48px; height: 48px; } .picnic-table { padding: 10px; gap: 8px; } .cover-row { grid-template-columns: 1fr; } }
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }

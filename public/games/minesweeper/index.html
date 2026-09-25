@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f4f2ec">
+  <title>扫雷 · 在方格里，发现一片晴朗</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="game.js"></script>
+</head>
+<body>
+  <header class="header">
+    <a class="brand" href="./" aria-label="扫雷首页"><span class="brand-mark" aria-hidden="true">⚑</span>扫雷 <small>MINESWEEPER</small></a>
+    <a class="hall-link" href="../../index.html" target="_top">← 游戏大厅</a>
+  </header>
+  <main>
+    <section class="intro">
+      <p class="eyebrow">A LITTLE FIELD OF POSSIBILITIES</p>
+      <h1>方寸之间，<span>步步晴朗。</span></h1>
+      <p>让数字带路，让好奇心慢慢展开。第一步，放心落下。</p>
+    </section>
+    <div class="game-layout">
+      <section class="board-panel" aria-label="扫雷游戏">
+        <div class="board-heading"><span><i aria-hidden="true"></i> 一片待探索的小天地</span><span id="board-size">9 × 9</span></div>
+        <div class="stats" aria-label="本局数据">
+          <div><span>可用旗帜</span><strong id="flags-left">10</strong><small id="mine-total">共 10 颗雷</small></div>
+          <div><span>本局用时</span><strong id="timer" aria-label="本局用时 0 秒">00:00</strong><small>从首次翻开计时</small></div>
+          <div><span>最佳用时</span><strong id="best">—</strong><small id="best-note">经典 · 本机记录</small></div>
+        </div>
+        <div class="board-scroll" role="region" aria-label="棋盘区域，窄屏可左右滑动"><div class="board" id="board" role="grid" aria-label="扫雷棋盘" aria-describedby="grid-help mode-help" data-difficulty="classic"></div></div>
+        <div class="board-foot"><span id="progress">已翻开 0 / 71</span><span>首步及周围八格安全</span></div>
+      </section>
+      <aside class="sidebar">
+        <section class="control-card" aria-labelledby="controls-title">
+          <div class="section-heading"><h2 id="controls-title">选一片天地</h2><span>TAKE YOUR TIME</span></div>
+          <div class="difficulty" role="group" aria-label="难度">
+            <button data-level="classic" aria-pressed="true">经典<small>9 × 9 · 10 颗雷</small></button>
+            <button data-level="hard" aria-pressed="false">进阶<small>12 × 12 · 24 颗雷</small></button>
+          </div>
+          <div class="status" id="status" role="status" aria-live="polite" aria-atomic="true"><span aria-hidden="true" id="status-icon">✧</span><div><strong id="status-title">从任意一格开始</strong><p id="status-detail">第一步一定安全，还会展开一片空地。</p></div></div>
+          <button id="flag-mode" class="secondary-button" aria-pressed="false" aria-describedby="mode-help"><span aria-hidden="true">⚑</span> 插旗模式 <span id="mode-state">关</span></button>
+          <p class="mode-help" id="mode-help">当前：点按翻开格子。打开插旗模式后，点按可插旗或拔旗。</p>
+          <button id="restart" class="primary-button">↻ 重新开始</button>
+          <p class="storage-note" id="storage-note">最佳成绩按难度保存在此浏览器。</p>
+        </section>
+        <section class="rules-card" aria-labelledby="rules-title">
+          <h2 id="rules-title"><span aria-hidden="true">◎</span> 落指之前</h2>
+          <p>数字表示周围八格的雷数。空白会自动展开；翻开所有<strong>没有雷的格子</strong>，就赢了。</p>
+          <p>怀疑有雷？先插一面旗。旗帜只是标记，不保证判断正确；拔旗后才能翻开。</p>
+          <p id="grid-help" class="keyboard-help">鼠标：左键翻开，右键插旗。<br>触屏：用「插旗模式」切换操作；窄屏下进阶棋盘可左右滑动。<br>键盘：方向键移动，Enter / 空格执行当前操作，F 插旗或拔旗。</p>
+        </section>
+      </aside>
+    </div>
+    <footer><span>不必着急，每一步都算数。</span><span>A QUIET LITTLE CHALLENGE ✳</span></footer>
+    <noscript><p>请启用 JavaScript 来探索这片小天地。</p></noscript>
+  </main>
+  <dialog id="confirm-dialog" aria-labelledby="dialog-title" aria-describedby="dialog-detail">
+    <h2 id="dialog-title">重新开始这一局？</h2>
+    <p id="dialog-detail">当前进度将被清空。准备好再出发了吗？</p>
+    <div class="dialog-actions"><button id="cancel-reset" class="secondary-button" autofocus>继续本局</button><button id="confirm-reset" class="primary-button">确认开始</button></div>
+  </dialog>
+</body>
+</html>

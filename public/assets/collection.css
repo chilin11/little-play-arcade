@@ -1,0 +1,124 @@
+/* Home-only enhancement; shared player styles and catalog contract stay untouched. */
+.collection-home { --muted: #5d6e61; }
+.collection-home .library { display: grid; padding-top: 32px; }
+.collection-home .section-top { margin-bottom: 16px; }
+.collection-home .section-top h1 { font-size: clamp(24px, 3vw, 34px); flex-wrap: wrap; }
+.collection-home .eyebrow { color: #61705d; }
+.collection-home .search-box { height: 48px; width: min(340px, 100%); }
+.collection-home .search-box input { font-size: 16px; }
+.collection-hint { margin: 0 0 24px; padding: 16px 20px; border: 1px solid #dce3d3; border-radius: 16px; background: #eef2e7; font-size: 18px; font-weight: 700; line-height: 1.65; }
+.collection-hint span { display: block; font-size: 14px; font-weight: 400; color: #53664f; }
+.collection-home .filter-row { gap: 16px; align-items: start; margin: 0; padding: 0 0 12px; border-bottom: 1px solid var(--line); }
+.collection-home .filters { gap: 8px; }
+.collection-home .filters button { min-height: 48px; padding: 10px 16px; font-size: 14px; border: 1px solid #d8dfd0; background: #fffef9; color: #435842; border-radius: 14px; }
+.collection-home .filters button.selected { background: #345447; color: #fffef9; border-color: #345447; box-shadow: 0 3px 0 #c5d4bc; }
+.collection-home .sort-label, .collection-home .sort-label select { font-size: 14px; color: #52654c; }
+.collection-home .sort-label select { min-height: 48px; }
+.collection-results { margin: 16px 0; font-size: 14px; color: #53664f; min-height: 20px; }
+.collection-home .game-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.collection-home .game-card { display: flex; flex-direction: column; border-radius: 20px; overflow: visible; min-width: 0; }
+.collection-home .game-cover-link { border-radius: 19px 19px 0 0; }
+.collection-home .game-cover { aspect-ratio: 12 / 7; border-radius: inherit; }
+.collection-home .favorite-button { width: 48px; height: 48px; background: #fffef9; border-color: #d9dbcf; color: #704c77; font-size: 26px; }
+.collection-home .card-badge { max-width: calc(100% - 90px); font-size: 12px; color: #485d40; }
+.collection-home .card-content { display: flex; flex: 1; flex-direction: column; padding: 20px; }
+.collection-home .card-category { justify-content: start; }
+.collection-home .card-category span:first-child { display: none; }
+.collection-home .card-category span:last-child { font-size: 12px; color: #606c59; letter-spacing: 0; }
+.collection-home .card-content h3 { font-size: 23px; line-height: 1.4; margin: 0 0 8px; }
+.collection-home .card-content h3 a { display: flex; align-items: center; min-height: 44px; }
+.collection-home .card-content > p { font-size: 14px; line-height: 1.75; color: #596950; min-height: 0; }
+.collection-home .card-tags { order: -1; margin: 0 0 8px; }
+.collection-home .card-category { margin-top: 16px; order: 1; }
+.collection-home .card-bottom { order: 2; }
+.collection-home .card-tags span { font-size: 12px; color: #566b49; background: #eef2e7; }
+.collection-home .card-bottom { margin-top: auto; gap: 8px; }
+.collection-home .card-device { font-size: 11px; color: #596950; }
+.collection-home .play-link { min-height: 48px; padding: 8px 14px; border-radius: 12px; color: #fffef9; background: #345447; font-size: 15px; gap: 10px; }
+.collection-home .play-link span { background: transparent; width: auto; color: inherit; }
+.collection-home .game-cover-link:focus-visible, .collection-home .favorite-button:focus-visible { outline-offset: -5px; }
+.collection-home .main-nav { font-size: 14px; }
+.collection-home .button-small, .collection-home .text-button { min-height: 48px; font-size: 13px; }
+.collection-home .recent-card strong { font-size: 16px; }
+.collection-home .recent-card small, .collection-home .closing-note p { font-size: 13px; color: #596950; }
+@media (max-width: 1000px) {
+  .collection-home .game-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .collection-home .section-top { align-items: start; flex-direction: column; }
+  .collection-home .search-box { width: 100%; }
+  .collection-home .filter-row { flex-direction: column; gap: 8px; }
+  .collection-home .sort-label { align-self: flex-end; }
+}
+@media (max-width: 600px) {
+  .collection-home .home-main { padding: 0 16px; }
+  .collection-home .library { padding-top: 24px; }
+  .collection-home .game-grid { grid-template-columns: 1fr; gap: 16px; }
+  .collection-home .filters { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); width: 100%; }
+  .collection-home .filter-row { width: 100%; }
+  .collection-home .filters button { padding: 10px 8px; }
+  .collection-home .card-content { padding: 18px; }
+  .collection-home .search-box kbd { display: none; }
+  .collection-home .main-nav { justify-content: space-between; }
+  .collection-home .section-top h1 { gap: 8px; }
+  .collection-hint { padding: 14px 16px; }
+}
+/* Curated shelf: existing paper/ink tokens, sage + apricot surfaces, lavender selection.
+   8px spacing rhythm; readable covers, no carousel, no inferred age recommendations. */
+.collection-home { overflow-wrap: anywhere; }
+.spotlight-section { padding: 32px 0 28px; border-bottom: 1px solid var(--line); }
+.spotlight-heading { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 16px; }
+.spotlight-heading h2 { margin: 8px 0 0; font-size: clamp(22px, 2.4vw, 28px); letter-spacing: -.5px; }
+.spotlight-tabs { display: flex; flex-shrink: 0; gap: 4px; background: #eaece3; padding: 4px; border-radius: 16px; }
+.spotlight-tabs button { min-height: 44px; padding: 8px 16px; border: 0; border-radius: 12px; background: transparent; font-size: 14px; }
+.spotlight-tabs button[aria-pressed="true"] { background: #fffef9; box-shadow: 0 2px 6px #293d3610; font-weight: 700; }
+.spotlight-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.spotlight-card { min-width: 0; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: center; border: 1px solid #d7dfce; border-radius: 20px; background: #eaf0e5; }
+.spotlight-card-2 { background: #f5e9d9; border-color: #e6d9c6; }
+.spotlight-card img { width: 100%; height: 100%; min-height: 176px; object-fit: cover; border-radius: 19px 0 0 19px; }
+.spotlight-copy { min-width: 0; padding: 20px; }
+.spotlight-kicker { font-size: 11px; color: #53664f; }
+.spotlight-copy h3 { margin: 8px 0; font-size: 22px; line-height: 1.4; }
+.spotlight-copy p { margin: 0; font-size: 12px; line-height: 1.8; color: #596950; }
+.spotlight-action { display: flex; gap: 16px; align-items: center; min-height: 44px; font-size: 14px; font-weight: 600; margin-top: 8px; }
+.spotlight-action span { margin-left: auto; }
+.spotlight-card:hover { border-color: #8d9e83; background: #e1e9d9; }
+.collection-discovery { display: flex; align-items: center; gap: 24px; margin: 0 0 24px; padding: 20px; border: 1px solid var(--line); border-radius: 16px; background: #f0efe8; }
+.discovery-intro { flex: 1 0 200px; }
+.discovery-intro strong { font-size: 16px; }
+.discovery-intro p { margin: 8px 0 0; font-size: 12px; line-height: 1.7; color: var(--muted); }
+.quick-picks { display: flex; flex-wrap: wrap; gap: 8px; }
+.quick-picks button { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 48px; padding: 8px 12px; font-size: 14px; border: 1px solid #dbdfd3; border-radius: 12px; background: #fffef9; }
+.quick-picks button span { font-size: 11px; color: #61705d; }
+.quick-picks button[aria-pressed="true"] { border-color: #89739a; background: #ece5f2; }
+.collection-home .search-box:focus-within { outline: 3px solid var(--orange); outline-offset: 3px; }
+.collection-home .card-bottom { flex-wrap: wrap; }
+.collection-home .recent-card > div { min-width: 0; }
+.collection-home .site-footer a { display: flex; align-items: center; min-height: 44px; }
+.collection-home :is(button, a, .game-card, .game-cover) { transition: background 140ms ease-out, border-color 140ms ease-out, transform 180ms cubic-bezier(.2,.8,.2,1), box-shadow 180ms ease-out; }
+.collection-home .game-card:hover, .collection-home .game-card:hover .game-cover { transform: none; }
+.collection-home :is(button, a):active { transform: translateY(1px); }
+.spotlight-card { animation: shelf-in 240ms cubic-bezier(.2,.9,.25,1.12) both; }
+.spotlight-card-2 { animation-delay: 40ms; }
+@keyframes shelf-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+@media (max-width: 1000px) {
+  .spotlight-copy { padding: 16px; }
+  .spotlight-copy h3 { font-size: 20px; }
+  .collection-discovery { flex-direction: column; align-items: stretch; gap: 16px; }
+  .discovery-intro { flex-basis: auto; }
+}
+@media (max-width: 600px) {
+  .spotlight-section { padding: 24px 0; }
+  .spotlight-heading { align-items: flex-start; flex-direction: column; }
+  .spotlight-grid { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+  .spotlight-card { grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); }
+  .spotlight-card img { min-height: 156px; }
+  .spotlight-copy { padding: 12px; }
+  .collection-discovery { padding: 16px; }
+  .quick-picks { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .collection-home .header-inner { padding: 0 16px; gap: 0 8px; }
+  .collection-home .header-inner > .button-small { font-size: 11px; padding: 8px; gap: 6px; }
+  .collection-home .main-nav { height: 48px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .collection-home *, .collection-home *::before, .collection-home *::after { scroll-behavior: auto; transition: none !important; animation: none !important; }
+  .collection-home :is(button, a):hover, .collection-home :is(button, a):active { transform: none; }
+}

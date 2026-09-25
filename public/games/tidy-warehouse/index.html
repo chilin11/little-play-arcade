@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#eee6d8">
+  <meta name="description" content="仓库小管家 TIDY WAREHOUSE：把木箱推到发光的收纳位。">
+  <title>仓库小管家 · TIDY WAREHOUSE</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="game.js"></script>
+</head>
+<body id="tidy-warehouse-app">
+  <header class="site-header">
+    <a class="brand" href="../../index.html" target="_top" aria-label="返回游戏大厅">
+      <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span class="brand-copy">仓库小管家<small>TIDY WAREHOUSE</small></span>
+    </a>
+    <a class="hall-link" href="../../index.html" target="_top">← 游戏大厅</a>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="game-title">
+      <div>
+        <p class="eyebrow">A QUIET LITTLE LOGISTICS PUZZLE</p>
+        <h1 id="game-title">把每只木箱，<span>送回它的位置。</span></h1>
+        <p class="hero-copy">走到箱子旁边，把箱子推到发光的收纳位。先看看通道，再决定下一步；慢慢来，没有计时，也没有失败惩罚。</p>
+      </div>
+      <div class="hero-stamp" aria-hidden="true"><b>TW</b><span>WAREHOUSE<br>KEEPER</span></div>
+    </section>
+
+    <section class="game-layout" aria-label="仓库小管家游戏区">
+      <section class="play-card" aria-labelledby="board-title">
+        <div class="board-topline">
+          <span class="location-label"><i aria-hidden="true"></i><span id="level-label">第 1 关</span></span>
+          <span id="level-status" class="level-status">准备整理</span>
+        </div>
+        <div class="level-heading">
+          <p class="eyebrow">STORAGE BAY <span id="level-size">5 × 5</span></p>
+          <h2 id="board-title" tabindex="-1">木架旁的第一箱</h2>
+          <p id="level-description">熟悉仓库里的走法，把第一只木箱送到发光位。</p>
+        </div>
+
+        <div id="board" class="warehouse-board" role="grid" tabindex="0" aria-label="仓库网格。可以点击相邻格移动，也可以点击远处可到达的空格。" aria-describedby="board-help"></div>
+        <p id="board-help" class="board-help">轻触相邻格移动；轻触较远的空格会沿最短可达路径走过去，但不会自动推箱。也可以滑动一步。</p>
+
+        <div class="legend" aria-label="图例">
+          <span><i class="legend-box" aria-hidden="true"></i>木箱</span>
+          <span><i class="legend-goal" aria-hidden="true"></i>收纳位</span>
+          <span><i class="legend-player" aria-hidden="true"></i>管理员</span>
+        </div>
+
+        <div id="announcement" class="announcement" role="status" aria-live="polite" aria-atomic="true">先观察一下：把所有木箱送到发光的收纳位。</div>
+
+        <div class="play-actions" aria-label="游戏操作">
+          <button id="undo" class="action-button" type="button">↶ <span>撤销</span></button>
+          <button id="restart" class="action-button" type="button">↻ <span>重开</span></button>
+          <button id="hint" class="action-button hint-button" type="button">✦ <span>提示</span></button>
+        </div>
+
+        <div class="movement-panel">
+          <div class="movement-heading">
+            <span>移动管理员</span>
+            <span id="move-count">步数 0 · 推箱 0</span>
+          </div>
+          <div class="direction-pad" aria-label="屏幕方向键">
+            <span class="pad-spacer" aria-hidden="true"></span>
+            <button class="direction-button" type="button" data-direction="up" aria-label="向上移动">↑</button>
+            <span class="pad-spacer" aria-hidden="true"></span>
+            <button class="direction-button" type="button" data-direction="left" aria-label="向左移动">←</button>
+            <span class="pad-center" aria-hidden="true">TW</span>
+            <button class="direction-button" type="button" data-direction="right" aria-label="向右移动">→</button>
+            <span class="pad-spacer" aria-hidden="true"></span>
+            <button class="direction-button" type="button" data-direction="down" aria-label="向下移动">↓</button>
+            <span class="pad-spacer" aria-hidden="true"></span>
+          </div>
+          <p class="keyboard-note">键盘也可以：方向键或 W A S D</p>
+        </div>
+      </section>
+
+      <aside class="side-panel">
+        <section class="level-card" aria-labelledby="levels-title">
+          <div class="section-heading">
+            <h2 id="levels-title">仓库进度</h2>
+            <span>12 BAYS</span>
+          </div>
+          <div id="level-list" class="level-list" role="list" aria-label="关卡选择"></div>
+          <p id="save-status" class="save-status">完成的关卡会在这台设备上保留。</p>
+        </section>
+
+        <section class="how-card" aria-labelledby="how-title">
+          <h2 id="how-title">怎么玩</h2>
+          <p><b>①</b> 走到箱子旁边，留出箱子要去的方向。</p>
+          <p><b>②</b> 轻触相邻格，或按方向键，把箱子推向发光位。</p>
+          <p><b>③</b> 箱子进角落时会提醒你；可以随时撤销，不会扣分。</p>
+          <p class="grownup-note">适合约 6～10 岁<br>不计时 · 不设生命 · 安静地想一想</p>
+        </section>
+
+        <section class="warehouse-note" aria-label="仓库提示">
+          <div class="shelf-lines" aria-hidden="true"><i></i><i></i><i></i></div>
+          <p><strong>小小仓库守则</strong><br>收纳位可以先观察，箱子不要急着推进角落。</p>
+        </section>
+      </aside>
+    </section>
+
+    <footer>
+      <span>每一次推动，都让仓库离整齐更近一点。</span>
+      <span>MADE FOR THOUGHTFUL WAREHOUSE KEEPERS</span>
+    </footer>
+  </main>
+
+  <dialog id="win-dialog" aria-labelledby="win-title">
+    <button id="close-dialog" class="dialog-close" type="button" aria-label="关闭完成提示">×</button>
+    <div class="dialog-mark" aria-hidden="true">✓</div>
+    <p class="eyebrow">BAY COMPLETE</p>
+    <h2 id="win-title">这一库整理好了。</h2>
+    <p id="win-copy">所有木箱都回到了发光的收纳位。</p>
+    <p id="dialog-best" class="dialog-best"></p>
+    <div class="dialog-actions">
+      <button id="dialog-replay" class="secondary-button" type="button">再整理一次</button>
+      <button id="dialog-next" class="primary-button" type="button">下一关 →</button>
+    </div>
+  </dialog>
+</body>
+</html>

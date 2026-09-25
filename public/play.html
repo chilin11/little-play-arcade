@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f7f2">
+  <meta name="description" content="在玩一会儿免费畅玩小游戏，无需下载，无需登录。">
+  <title>开始游戏 · 玩一会儿</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/site.css">
+  <script type="module" src="assets/play.js"></script>
+</head>
+<body class="play-page">
+  <a class="skip-link" href="#game-area">跳到游戏</a>
+  <header class="site-header"><div class="header-inner"><a class="brand" href="./"><span class="brand-symbol" aria-hidden="true">w<span>•</span></span><span>玩一会儿<small>JUST A LITTLE PLAY</small></span></a><a class="back-link" href="./#library">← 返回游戏大厅</a></div></header>
+  <main class="play-main">
+    <div id="play-error" class="empty-state" hidden><span aria-hidden="true">↗</span><h1>这个游戏暂时找不到了</h1><p>链接可能不完整，去大厅选一个游戏吧。</p><a class="button button-dark" href="./#library">返回游戏大厅</a></div>
+    <div id="play-content" hidden>
+      <div class="play-heading"><div><div class="eyebrow" id="game-subtitle"></div><h1 id="game-title"></h1><p id="game-description"></p></div><div class="play-heading-actions"><button id="play-favorite" class="button button-outline" type="button" aria-pressed="false">♡ 收藏</button><button id="share-game" class="button button-outline" type="button">分享链接 ↗</button></div></div>
+      <section id="game-area" class="game-area" aria-label="游戏播放器"><div class="player-toolbar"><span class="player-label"><span class="status-dot"></span> <span id="player-status">正在加载游戏…</span></span><div><a id="open-game" href="#" target="_blank" rel="noopener">独立打开 ↗</a><button id="reload-game" type="button">↻ 重载</button><button id="fullscreen" type="button">⛶ 全屏</button></div></div><iframe id="game-frame" title="小游戏" allow="fullscreen" allowfullscreen referrerpolicy="same-origin"></iframe></section>
+      <div class="game-help"><div><h2>怎么玩 <span>HOW TO PLAY</span></h2><p id="game-controls"></p></div><div><h2>小提示 <span>GOOD TO KNOW</span></h2><p id="game-note"></p><p>收藏不保存游戏进度；仅标明支持自动续局的游戏会恢复当前对局，其余游戏离开或重载后重置。</p></div></div>
+      <section class="more-section" aria-labelledby="more-title"><div class="section-top"><h2 id="more-title">换个心情，试试这些</h2><a class="text-button" href="./#library">全部游戏 ↗</a></div><div id="more-games" class="recent-grid"></div></section>
+    </div>
+    <p id="play-loading" class="loading-state">正在准备你的小游戏…</p>
+    <noscript><p>请启用 JavaScript，或<a href="./">返回大厅</a>查看游戏链接。</p></noscript>
+  </main>
+  <footer class="site-footer"><a class="footer-brand" href="./">玩一会儿<span>玩得开心，也记得休息。</span></a><a href="./#library">发现更多小游戏 ↗</a></footer>
+  <dialog id="reload-dialog"><h2>重新加载游戏？</h2><p>未保存的进度将丢失；支持自动续局的游戏会恢复已保存的棋盘。想从头玩，请使用游戏内的重新开始。</p><form method="dialog" class="dialog-actions"><button class="button button-outline" value="cancel">继续玩</button><button class="button button-dark" value="reload">确认重载</button></form></dialog>
+  <div class="toast" id="toast" role="status"></div>
+</body>
+</html>

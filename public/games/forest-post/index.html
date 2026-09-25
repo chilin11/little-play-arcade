@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f7f2e8">
+  <title>森林邮差 · 帮小动物找到回家的路</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="game.js"></script>
+</head>
+<body>
+  <header class="header"><a class="brand" href="./"><span class="brand-mark" aria-hidden="true">✉</span><span>森林邮差<small>FOREST POST</small></span></a><a class="hall-link" href="../../index.html" target="_top">← 游戏大厅</a></header>
+  <main>
+    <section class="intro"><div><p class="eyebrow">A TINY LETTER, A LOVELY WAY HOME</p><h1>穿过森林，<span>把信送到家。</span></h1><p>点一下小动物，再沿着相邻的小路走到门牌上有它头像的小屋。路不可以交叉哦。</p></div><div class="intro-friends" aria-hidden="true"><span>🐰</span><i>···</i><span>🏡</span></div></section>
+    <div class="game-layout">
+      <section class="board-panel" aria-label="森林邮差路径游戏">
+        <div class="board-top"><span><i></i> <span id="level-name">蒲公英小径</span></span><span id="route-status">两封信等着出发</span></div>
+        <div class="progress" id="progress" aria-label="关卡进度"></div>
+        <div class="board-scene"><span class="cloud cloud-one" aria-hidden="true"></span><span class="cloud cloud-two" aria-hidden="true"></span><div id="board" class="board" role="grid" aria-label="森林小路棋盘" aria-describedby="how-to"></div><span class="bush bush-one" aria-hidden="true">❧</span><span class="bush bush-two" aria-hidden="true">❧</span></div>
+        <div class="board-bottom"><span id="little-message">先点一下小动物吧</span><span>没有计时 · 慢慢想</span></div>
+      </section>
+      <aside class="sidebar">
+        <section class="control-card"><div class="section-heading"><h2>邮差小背包</h2><span>HAPPY DELIVERY</span></div><div class="mail-list" id="mail-list" aria-label="需要送达的信"></div><div id="status" class="status" role="status" aria-live="polite" aria-atomic="true"><span id="status-icon" aria-hidden="true">✧</span><div><strong id="status-title">选一位小邮差</strong><p id="status-detail">点小动物开始，再点旁边的格子，一步一步走。</p></div></div><button id="hint" class="hint-button">✦ 看一眼提示</button><button id="undo" class="secondary-button" disabled>↶ 重画这一条</button><button id="restart" class="primary-button">↻ 重新铺路</button><p id="save-note" class="save-note">走过的关卡会在这台设备上留下小树叶。</p></section>
+        <section class="rules-card" id="how-to"><h2><span aria-hidden="true">◎</span> 怎么玩</h2><div class="rule"><b>①</b><p>点一下<strong>小动物</strong>，拿好它的信。</p></div><div class="rule"><b>②</b><p>点按或拖过<strong>上下左右相邻</strong>的草地。</p></div><div class="rule"><b>③</b><p>找到门牌上有<strong>同样动物头像</strong>的小屋就送达。颜色也会帮忙提示；小路不能穿过石头、屋子或另一条路。</p></div><p class="grownup-note">适合 5～8 岁 · 无倒计时、分数与失败惩罚</p></section>
+      </aside>
+    </div>
+    <footer><span>每一封小小的信，都在等一条温柔的路。</span><span>MADE FOR LITTLE EXPLORERS ✿</span></footer>
+  </main>
+  <dialog id="win-dialog" aria-labelledby="win-title"><div class="win-art" aria-hidden="true">💌</div><p class="eyebrow">SPECIAL DELIVERY!</p><h2 id="win-title">全部送到啦！</h2><p id="win-message">小动物们收到信，森林里开出了一朵小花。</p><div class="dialog-actions"><button id="replay" class="secondary-button">再走一次</button><button id="next-level" class="primary-button">去下一片森林 →</button></div></dialog>
+</body>
+</html>
