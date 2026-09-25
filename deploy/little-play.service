@@ -5,7 +5,7 @@ After=network.target
 [Service]
 Type=simple
 DynamicUser=yes
-ExecStart=/usr/bin/python3 /opt/little-play/serve.py --directory /opt/little-play/public --port 5180 --bind 0.0.0.0
+ExecStart=/usr/bin/python3 /opt/little-play/deploy/serve.py --directory /opt/little-play/public --port 5180 --bind 0.0.0.0
 Restart=on-failure
 RestartSec=3
 NoNewPrivileges=true
