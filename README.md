@@ -55,7 +55,7 @@ python3 -m http.server 5180 --bind 127.0.0.1
 
 **不要直接双击 index.html**：大厅通过 fetch 读取 `games.json`，需要 HTTP 服务器。Python 预览不包含生产安全响应头。
 
-## 2. VPS 部署（推荐：Docker + Caddy）
+## 2. VPS 部署（Docker + Caddy，自动 HTTPS）
 
 适用于 Linux VPS。先安装 Docker Engine、Docker Compose 插件、Git 和 GitHub CLI（`gh`），并确认：
 
@@ -139,9 +139,51 @@ docker compose up -d --build
 
 停止：`docker compose down`（保留命名卷）。备份项目代码、VPS 的 `.env` 和 Caddy 的 `caddy_data` 卷；玩家本地收藏不会上传至服务器。
 
-## 3. 小 VPS 部署（Nginx 静态托管，无 Docker / Node.js）
+## 3. 小 VPS 最简部署（单端口 + systemd）
 
-适用于 Ubuntu / Debian。VPS 只运行 Nginx，不构建镜像、不安装 Node.js；用本机的 `rsync` 通过 SSH 上传 `public/`，无需在 VPS 上登录私有 GitHub 仓库。此方案和上面的 Docker + Caddy **二选一**，不要同时占用 80 / 443 端口。
+网站是纯静态文件，只需 Python 3 标准库（Ubuntu / Debian 通常已有）和 systemd：无 Docker、Nginx、Node.js、数据库；默认直接监听 **5180** 端口。此方案仅提供 **HTTP**；公网开放端口时流量不加密，不要在站内输入敏感信息。需要 HTTPS 时可在现有反向代理后面使用，届时将 service 中的 `--bind 0.0.0.0` 改为 `--bind 127.0.0.1`。
+
+### 首次部署
+
+在**本机项目根目录**运行（替换 SSH 地址；只上传网站文件和服务文件）：
+
+```sh
+ssh YOUR_USER@YOUR_VPS_IP 'mkdir -p ~/little-play/public'
+scp -r public/. YOUR_USER@YOUR_VPS_IP:~/little-play/public/
+scp deploy/serve.py deploy/little-play.service YOUR_USER@YOUR_VPS_IP:~/little-play/
+```
+
+在 **VPS** 上运行：
+
+```sh
+ssh YOUR_USER@YOUR_VPS_IP
+python3 --version
+sudo mkdir -p /opt/little-play
+sudo cp -R ~/little-play/public /opt/little-play/
+sudo install -m 644 ~/little-play/serve.py /opt/little-play/serve.py
+sudo install -m 644 ~/little-play/little-play.service /etc/systemd/system/little-play.service
+sudo systemctl daemon-reload
+sudo systemctl enable --now little-play
+sudo systemctl status little-play --no-pager
+curl -I http://127.0.0.1:5180/
+```
+
+在云厂商安全组及系统防火墙**只新增放行 TCP 5180**（不要关闭 SSH 或清空现有规则），然后访问 `http://VPS_IP:5180/`。若 5180 已被占用，把 `deploy/little-play.service` 的 `--port 5180` 改成空闲端口，重新上传安装并 `sudo systemctl daemon-reload && sudo systemctl restart little-play`，同时放行对应端口。服务会随系统启动；查看日志：`sudo journalctl -u little-play -n 50 --no-pager`。
+
+### 后续更新
+
+本机重新上传文件：
+
+```sh
+scp -r public/. YOUR_USER@YOUR_VPS_IP:~/little-play/public/
+ssh YOUR_USER@YOUR_VPS_IP 'sudo cp -R ~/little-play/public/. /opt/little-play/public/'
+```
+
+仅更新网页文件**不需要重启服务**。如果删除了旧资源，`scp` 不会自动清理 VPS 上的旧文件；需手动删除对应旧文件。更新服务脚本时再上传 `deploy/serve.py` 到 VPS 并安装到 `/opt/little-play/serve.py`，然后 `sudo systemctl restart little-play`。文件位于专用目录，服务只公开其中的 `public/`；`/not-found` 应返回 404，不提供目录列表。
+
+## 4. 可选：小 VPS 使用 Nginx（静态托管）
+
+适用于 Ubuntu / Debian。VPS 只运行 Nginx，不构建镜像、不安装 Node.js；用本机的 `rsync` 通过 SSH 上传 `public/`，无需在 VPS 上登录私有 GitHub 仓库。此方案与上面的单端口服务或 Docker + Caddy **任选一种**；单端口服务可与 Nginx 共存，但不要让两者占用同一端口。
 
 ### 首次准备（在 VPS 上执行一次）
 
@@ -209,7 +251,7 @@ ssh YOUR_USER@YOUR_VPS_IP 'sudo rsync -a --delete ~/little-play/public/ /var/www
 
 只更新静态文件无需重启 Nginx。`--delete` 只作用于这两个专用目录，不要将其他文件放进去。若修改了 `deploy/nginx.conf`，还需重新上传、安装并运行 `sudo nginx -t && sudo systemctl reload nginx`。页面采用 `Cache-Control: no-cache`，浏览器会重新验证。若使用 1Panel / 宝塔，亦可创建静态网站并把网站根目录指向 `public/` 的上传位置，在面板申请 SSL；游玩页需要同源 iframe，**不要设置 `X-Frame-Options: DENY`**。
 
-## 4. 后续添加游戏
+## 5. 后续添加游戏
 
 无需修改大厅或游玩页代码。
 
@@ -268,7 +310,7 @@ npm run check
 PORT=5180 npm run dev
 ```
 
-## 5. 开发测试
+## 6. 开发测试
 
 静态检查与基础单元测试不需要安装依赖：
 
@@ -301,7 +343,7 @@ public/                 # 唯一的网站公开根目录
   404.html
 scripts/                # 本地服务器与静态检查
  tests/                 # 单元与浏览器测试
- deploy/                # Caddy / Nginx 配置
+ deploy/                # Caddy / Nginx 配置及单端口 systemd 服务
 Dockerfile
 compose.yaml
 .env.example

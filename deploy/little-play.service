@@ -1,0 +1,17 @@
+[Unit]
+Description=Little Play static website
+After=network.target
+
+[Service]
+Type=simple
+DynamicUser=yes
+ExecStart=/usr/bin/python3 /opt/little-play/serve.py --directory /opt/little-play/public --port 5180 --bind 0.0.0.0
+Restart=on-failure
+RestartSec=3
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
