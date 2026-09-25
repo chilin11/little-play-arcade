@@ -139,34 +139,75 @@ docker compose up -d --build
 
 停止：`docker compose down`（保留命名卷）。备份项目代码、VPS 的 `.env` 和 Caddy 的 `caddy_data` 卷；玩家本地收藏不会上传至服务器。
 
-## 3. 已有 Nginx 的 VPS
+## 3. 小 VPS 部署（Nginx 静态托管，无 Docker / Node.js）
 
-此方案与 Caddy 二选一。网站默认部署到域名根目录，推荐专用子域名 `games.example.com`。
+适用于 Ubuntu / Debian。VPS 只运行 Nginx，不构建镜像、不安装 Node.js；用本机的 `rsync` 通过 SSH 上传 `public/`，无需在 VPS 上登录私有 GitHub 仓库。此方案和上面的 Docker + Caddy **二选一**，不要同时占用 80 / 443 端口。
 
-1. 将 **`public/` 里的内容**上传至 `/var/www/little-play/`（让 `index.html` 直接位于此目录），文件需允许 Nginx 用户读取。
-2. 将 `deploy/nginx.conf` 复制至 `/etc/nginx/sites-available/little-play`。
-3. 修改 `server_name` 为你的域名，必要时修改 `root`。
-4. 启用配置并检查：
+### 首次准备（在 VPS 上执行一次）
+
+先登录 VPS 安装 Nginx 和 rsync（精简系统通常未预装 rsync）：
 
 ```sh
-sudo ln -s /etc/nginx/sites-available/little-play /etc/nginx/sites-enabled/little-play
-sudo nginx -t
-# 只有检查通过才重载
-sudo systemctl reload nginx
+ssh YOUR_USER@YOUR_VPS_IP
+sudo apt update
+sudo apt install nginx rsync
+exit
 ```
 
-如果发行版使用 `/etc/nginx/conf.d/`，将配置放到该目录并以 `.conf` 结尾，不需要创建上述软链接。
+### 首次上传（在本机执行）
 
-5. Ubuntu / Debian 上可以通过 Certbot 配置 HTTPS（先完成 DNS 与端口放行）：
+将下列 `YOUR_USER@YOUR_VPS_IP` 替换为你的 SSH 登录地址；本机在项目根目录运行：
 
 ```sh
-sudo apt update
+ssh YOUR_USER@YOUR_VPS_IP 'mkdir -p ~/little-play/public'
+rsync -av --delete public/ YOUR_USER@YOUR_VPS_IP:~/little-play/public/
+scp deploy/nginx.conf YOUR_USER@YOUR_VPS_IP:~/little-play/nginx.conf
+```
+
+`public/` 末尾的斜杠很重要：网站根目录必须直接包含 `index.html`。不要把整个仓库、`.env` 或测试文件放入网站根目录。
+
+### 配置并启动（在 VPS 上执行）
+
+```sh
+ssh YOUR_USER@YOUR_VPS_IP
+sudo mkdir -p /var/www/little-play
+sudo rsync -a --delete ~/little-play/public/ /var/www/little-play/
+nano ~/little-play/nginx.conf
+```
+
+把配置中的 `server_name games.example.com;` 改成自己的域名；**仅用 IP 测试**可改成 `server_name _;`。有域名时先将 A 记录指向 VPS 公网 IP（仅在 IPv6 确实可用时设置 AAAA）。确保云安全组和防火墙放行 TCP 80；申请 HTTPS 还需放行 TCP 443，同时保留 SSH 端口。若 VPS 上已有站点或 80 / 443 被占用，不要覆盖其配置或停止其他服务，先检查现有反向代理方案。
+
+```sh
+sudo install -m 644 ~/little-play/nginx.conf /etc/nginx/sites-available/little-play
+sudo ln -s /etc/nginx/sites-available/little-play /etc/nginx/sites-enabled/little-play
+sudo nginx -t && sudo systemctl reload nginx
+curl -I http://127.0.0.1
+```
+
+新装 Nginx 如果用 IP 访问仍显示默认欢迎页，且这台 VPS 没有其他网站，可移除默认站点链接后检查并重载：`sudo rm /etc/nginx/sites-enabled/default && sudo nginx -t && sudo systemctl reload nginx`。有域名时用 `http://你的域名` 检查首页；访问不存在的路径应返回 404。不要删除已有业务站点。
+
+### 域名 HTTPS（可选）
+
+域名解析与 80 / 443 放行后，在 Ubuntu / Debian 的 VPS 上执行（仅用 IP 测试可跳过）：
+
+```sh
 sudo apt install certbot python3-certbot-nginx
 sudo certbot --nginx -d games.example.com
 sudo certbot renew --dry-run
 ```
 
-不要覆盖已有站点的配置。若使用 1Panel / 宝塔，也可以创建静态网站、将网站根目录指向 `public` 的上传位置并在面板申请 SSL。注意：游玩页需要同源 iframe，**不要设置 `X-Frame-Options: DENY`**。
+替换为实际域名，随后访问 `https://你的域名`。Certbot 只在申请或续期时运行；极低内存的 VPS 若安装或签发失败，可先只用 HTTP 测试，正式公网使用再配置 HTTPS。
+
+### 后续更新
+
+本机在项目根目录上传更新：
+
+```sh
+rsync -av --delete public/ YOUR_USER@YOUR_VPS_IP:~/little-play/public/
+ssh YOUR_USER@YOUR_VPS_IP 'sudo rsync -a --delete ~/little-play/public/ /var/www/little-play/'
+```
+
+只更新静态文件无需重启 Nginx。`--delete` 只作用于这两个专用目录，不要将其他文件放进去。若修改了 `deploy/nginx.conf`，还需重新上传、安装并运行 `sudo nginx -t && sudo systemctl reload nginx`。页面采用 `Cache-Control: no-cache`，浏览器会重新验证。若使用 1Panel / 宝塔，亦可创建静态网站并把网站根目录指向 `public/` 的上传位置，在面板申请 SSL；游玩页需要同源 iframe，**不要设置 `X-Frame-Options: DENY`**。
 
 ## 4. 后续添加游戏
 
